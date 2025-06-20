@@ -40,7 +40,7 @@ Update with this configuration:
       "command": "npx",
       "args": [
         "mcp-remote",
-        "http://localhost:8787/sse"  // or remote-mcp-server-authless.your-account.workers.dev/sse
+        "http://penguin-bank-mcp-flare.dudgeon.workers.dev"  // or remote-mcp-server-authless.your-account.workers.dev/sse
       ]
     }
   }
