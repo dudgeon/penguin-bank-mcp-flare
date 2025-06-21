@@ -54,7 +54,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy public --project-name=penguin-bank --compatibility-date=2025-03-10
+          command: pages deploy public --project-name=penguin-bank
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
   # Deploy MCP Worker
