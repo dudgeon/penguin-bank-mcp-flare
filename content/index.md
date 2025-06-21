@@ -16,12 +16,17 @@ HTML SECTION MAPPING:
 
 KEY JAVASCRIPT IDs:
 - hero-tagline: Cycling taglines
+- mcp-url: URL input field for copying
+- copy-icon: Default copy button state (clipboard icon)
+- copied-icon: Success copy button state (checkmark icon)
 - intro-track: MCP introduction carousel
 - features-track: Features carousel  
 - connect-track: Get started carousel
 - feedback-track: Feedback carousel
 
 COMPONENT CLASSES:
+- .copy-url-container: Responsive container for "try it today" text and URL field
+- .copy-url-text: "Try it today" text with responsive alignment
 - .carousel-container: Carousel wrapper
 - .carousel-slide: Individual slides
 - .feature-card: Function category containers
@@ -86,6 +91,14 @@ COMPONENT CLASSES:
 
 ## Try it yourself
 <!-- HTML: <section id="connect" class="section-padding"> -->
+
+### Try it today text and URL copy
+<!-- HTML: <div class="copy-url-container"> with responsive layout -->
+**Text:** "Try the Penguin Bank MCP server today."
+**URL Field:** `https://mcp.penguinbank.cloud/` with copy button functionality
+- Desktop: Text appears to the left of URL field
+- Mobile: Text stacked above URL field
+- Copy button with icon feedback (clipboard → checkmark)
 
 ### Carousel Slides
 <!-- HTML: <div class="carousel-container"> with carousel-track id="connect-track" -->
