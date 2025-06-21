@@ -1,0 +1,26 @@
+<section id="{{functions.section_id}}" class="py-16 px-4{{#if functions.background_class}} {{functions.background_class}}{{/if}}">
+    <div class="max-w-5xl mx-auto">
+        <h3 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">{{functions.section_title}}</h3>
+        
+        {{#each functions.categories}}
+        <div id="{{this.id}}" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
+            <h4 class="text-lg font-semibold mb-3">{{this.title}}</h4>
+            {{#each this.functions}}
+            <div class="max-w-2xl mx-auto mb-8">
+                <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                    <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">{{this.name}}</span> - {{this.status}}
+                </div>
+                <div class="flex gap-3 mb-4 items-start justify-end">
+                    <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">{{this.user_input}}</div>
+                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                </div>
+                <div class="flex gap-3 mb-4 items-start justify-start">
+                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                    <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">{{{formatResponse this.response}}}</div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+</section> 

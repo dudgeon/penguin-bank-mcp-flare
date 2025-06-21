@@ -1,0 +1,165 @@
+<script>
+    // Carousel functionality
+    const carousels = [{{#each carousels}}'{{@key}}'{{#unless @last}}, {{/unless}}{{/each}}];
+    const carouselStates = {};
+    
+    // Initialize carousels
+    carousels.forEach(name => {
+        carouselStates[name] = { currentSlide: 0, totalSlides: 0 };
+        initCarousel(name);
+    });
+    
+    function initCarousel(name) {
+        const track = document.getElementById(`${name}-track`);
+        const slides = track.children;
+        const dotsContainer = document.getElementById(`${name}-dots`);
+        const container = track.parentElement;
+        
+        carouselStates[name].totalSlides = slides.length;
+        
+        // Create dots
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < slides.length; i++) {
+            const dot = document.createElement('div');
+            dot.className = `dot ${i === 0 ? 'active' : ''}`;
+            dot.onclick = () => goToSlide(name, i);
+            dotsContainer.appendChild(dot);
+        }
+        
+        // Add touch/swipe support
+        let startX = 0;
+        let startY = 0;
+        let isSwipeDetected = false;
+        
+        container.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isSwipeDetected = false;
+        }, { passive: true });
+        
+        container.addEventListener('touchmove', (e) => {
+            if (!startX || !startY) return;
+            
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            
+            const diffX = startX - currentX;
+            const diffY = startY - currentY;
+            
+            // Only detect horizontal swipes (ignore vertical scrolling)
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                isSwipeDetected = true;
+                e.preventDefault(); // Prevent scrolling when swiping horizontally
+            }
+        }, { passive: false });
+        
+        container.addEventListener('touchend', (e) => {
+            if (!startX || !startY || !isSwipeDetected) return;
+            
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            
+            // Minimum swipe distance
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    // Swipe left - go to next slide
+                    navigateCarousel(name, 1);
+                } else {
+                    // Swipe right - go to previous slide
+                    navigateCarousel(name, -1);
+                }
+            }
+            
+            startX = 0;
+            startY = 0;
+            isSwipeDetected = false;
+        }, { passive: true });
+    }
+    
+    function navigateCarousel(name, direction) {
+        const state = carouselStates[name];
+        const newSlide = state.currentSlide + direction;
+        
+        if (newSlide >= 0 && newSlide < state.totalSlides) {
+            goToSlide(name, newSlide);
+        }
+    }
+    
+    function goToSlide(name, slideIndex) {
+        const track = document.getElementById(`${name}-track`);
+        const dots = document.getElementById(`${name}-dots`).children;
+        
+        carouselStates[name].currentSlide = slideIndex;
+        track.style.transform = `translateX(-${slideIndex * 100}%)`;
+        
+        // Update dots
+        Array.from(dots).forEach((dot, index) => {
+            dot.className = `dot ${index === slideIndex ? 'active' : ''}`;
+        });
+    }
+    
+    // Hero tagline cycling
+    const taglines = [{{#each hero.taglines}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}];
+    
+    let currentTaglineIndex = 0;
+    const taglineElement = document.getElementById('{{hero.tagline_id}}');
+    
+    function cycleTagline() {
+        taglineElement.style.opacity = '0';
+        
+        setTimeout(() => {
+            currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
+            taglineElement.textContent = taglines[currentTaglineIndex];
+            taglineElement.style.opacity = '1';
+        }, 500);
+    }
+    
+    // Start cycling after initial load
+    setTimeout(() => {
+        setInterval(cycleTagline, 3000);
+    }, 2000);
+    
+    // Copy MCP URL functionality
+    function copyMcpUrl() {
+        const urlInput = document.getElementById('{{carousels.connect.copy_url.field_id}}');
+        const copyIcon = document.getElementById('{{carousels.connect.copy_url.copy_icon_id}}');
+        const copiedIcon = document.getElementById('{{carousels.connect.copy_url.copied_icon_id}}');
+        
+        // Select and copy the text
+        urlInput.select();
+        urlInput.setSelectionRange(0, 99999); // For mobile devices
+        
+        try {
+            navigator.clipboard.writeText(urlInput.value).then(() => {
+                // Show success state
+                copyIcon.style.display = 'none';
+                copiedIcon.style.display = 'inline-flex';
+                
+                setTimeout(() => {
+                    copyIcon.style.display = 'inline-flex';
+                    copiedIcon.style.display = 'none';
+                }, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                document.execCommand('copy');
+                copyIcon.style.display = 'none';
+                copiedIcon.style.display = 'inline-flex';
+                
+                setTimeout(() => {
+                    copyIcon.style.display = 'inline-flex';
+                    copiedIcon.style.display = 'none';
+                }, 2000);
+            });
+        } catch (err) {
+            // Fallback for very old browsers
+            document.execCommand('copy');
+            copyIcon.style.display = 'none';
+            copiedIcon.style.display = 'inline-flex';
+            
+            setTimeout(() => {
+                copyIcon.style.display = 'inline-flex';
+                copiedIcon.style.display = 'none';
+            }, 2000);
+        }
+    }
+</script> 

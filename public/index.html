@@ -81,8 +81,6 @@
             transform: scale(1.1);
         }
         
-
-        
         .dot {
             width: 8px;
             height: 8px;
@@ -95,8 +93,6 @@
         .dot.active {
             background: #22c55e !important;
         }
-        
-
         
         /* Temporary CSS for remaining unconverted chat containers */
         .chat-container {
@@ -204,12 +200,12 @@
                 </div>
             </div>
         </div>
-    </header>
-
-    <!-- Section 1: MCP Introduction -->
+    </header> 
+    <!-- Carousel Sections -->
     <section id="intro" class="py-16 px-4">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">AI assistants are getting more helpful</h2>
+            
             
             <div class="bg-gray-50 rounded-xl shadow-sm overflow-hidden relative mb-8">
                 <div class="carousel-track" id="intro-track">
@@ -275,12 +271,10 @@
                 <div class="flex justify-center gap-2 pb-6" id="intro-dots"></div>
             </div>
         </div>
-    </section>
-
-    <!-- Section 2: Use Cases -->
-    <section id="features" class="py-16 px-4 bg-gray-50">
+    </section>     <section id="features" class="py-16 px-4 bg-gray-50">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">Banking made simple</h2>
+            
             
             <div class="bg-white rounded-xl shadow-sm overflow-hidden relative mb-8">
                 <div class="carousel-track" id="features-track">
@@ -306,9 +300,9 @@
                         <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
                             <div class="w-full h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500 order-1 md:order-2">
                                 <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-30 h-30 stroke-gray-400">
-                                    <rect x="2" y="5" width="20" height="14" rx="2"/>
-                                    <line x1="2" y1="10" x2="22" y2="10"/>
-                                    <path d="M12 15h.01"/>
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                    <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                                    <circle cx="12" cy="12" r="3"/>
                                 </svg>
                             </div>
                             <div class="order-2 md:order-1">
@@ -346,10 +340,7 @@
                 <div class="flex justify-center gap-2 pb-6" id="features-dots"></div>
             </div>
         </div>
-    </section>
-
-    <!-- Section 3: How to Connect -->
-    <section id="connect" class="py-16 px-4">
+    </section>     <section id="connect" class="py-16 px-4">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">Try it yourself</h2>
             
@@ -456,186 +447,10 @@
                 <div class="flex justify-center gap-2 pb-6" id="connect-dots"></div>
             </div>
         </div>
-    </section>
-
-    <!-- Available Functions Section -->
-    <section id="functions" class="py-16 px-4 bg-gray-50">
-        <div class="max-w-5xl mx-auto">
-            <h3 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">What you can do with Penguin Bank MCP</h3>
-                    
-            <div id="account-information" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
-                    <h4 class="text-lg font-semibold mb-3">Account Information</h4>
-                    <div class="max-w-2xl mx-auto mb-8">
-                        <div class="text-xs text-gray-500 mt-8 mb-6 text-left"><span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_balance</span> - coming soon</div>
-                        <div class="flex gap-3 mb-4 items-start justify-end">
-                            <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">What's my current balance?</div>
-                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
-                        </div>
-                        <div class="flex gap-3 mb-4 items-start justify-start">
-                            <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
-                            <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">Your balance is $2,847.33 with $5,152.67 available credit</div>
-                        </div>
-                    </div>
-                    <div class="max-w-2xl mx-auto mb-8">
-                        <div class="text-xs text-gray-500 mt-8 mb-6 text-left"><span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_credit_limit</span> - coming soon</div>
-                        <div class="flex gap-3 mb-4 items-start justify-end">
-                            <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">What's my credit limit?</div>
-                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
-                        </div>
-                        <div class="flex gap-3 mb-4 items-start justify-start">
-                            <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
-                            <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">Your credit limit is $8,000</div>
-                        </div>
-                    </div>
-                </div>
-
-            <div id="transaction-history" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
-                    <h4 class="text-lg font-semibold mb-3">Transaction History</h4>
-                    <div class="max-w-2xl mx-auto mb-8">
-                        <div class="text-xs text-gray-500 mt-8 mb-6 text-left"><span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_recent_transactions</span> - coming soon</div>
-                        <div class="flex gap-3 mb-4 items-start justify-end">
-                            <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">Show me my last 5 purchases</div>
-                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
-                        </div>
-                        <div class="flex gap-3 mb-4 items-start justify-start">
-                            <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
-                            <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">Here are your last 5 transactions:<br>
-                            • Whole Foods - $67.43 (Today)<br>
-                            • Netflix - $15.99 (Yesterday)<br>
-                            • Shell Gas Station - $45.20 (Mar 2)<br>
-                            • Amazon - $129.99 (Mar 1)<br>
-                            • Starbucks - $6.75 (Mar 1)</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">search_transactions</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">How much did I spend at Whole Foods this month?</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">You spent $347.82 at Whole Foods across 8 transactions this month</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">get_pending_charges</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">Any pending charges?</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">Yes, $42.99 from Netflix is still processing and should post within 1-2 business days</div>
-                        </div>
-                    </div>
-                </div>
-
-            <div id="payments-transfers" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
-                    <h4 class="text-lg font-semibold mb-3">Payments & Transfers</h4>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">make_payment</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">Pay $200 toward my balance</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">✓ Payment of $200 scheduled for today. Your new balance will be $2,647.33</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">schedule_payment</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">Set up autopay for minimum due on the 15th</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">✓ Autopay configured! Your minimum payment will be automatically paid on the 15th of each month</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">get_payment_due_date</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">When is my payment due?</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">Your next payment of $35 (minimum due) is due on March 15th - that's in 12 days</div>
-                        </div>
-                    </div>
-                </div>
-
-            <div id="card-management" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
-                    <h4 class="text-lg font-semibold mb-3">Card Management</h4>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">freeze_card</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">I can't find my card</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">🔒 I've frozen your card for you. No charges can be made until you unfreeze it. Just let me know when you find it!</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">report_lost_card</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">My card was stolen</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">I've immediately cancelled your card and ordered a replacement. Your new card will arrive in 3-5 business days at your registered address. A temporary virtual card is available in your app.</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">update_pin</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">Change my PIN to something new</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">I've sent a secure PIN update link to your phone ending in **7890. The link expires in 30 minutes for your security.</div>
-                        </div>
-                    </div>
-                </div>
-
-            <div id="disputes-support" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
-                    <h4 class="text-lg font-semibold mb-3">Disputes & Support</h4>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">dispute_transaction</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">I didn't make that $89 charge</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">I've filed a dispute for the $89 charge. You'll receive a provisional credit within 2 business days while we investigate. We'll email you updates on the dispute status.</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">get_statement</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">I need my January statement</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">📄 I've downloaded your January 2025 statement. It shows a starting balance of $1,245.67 and ending balance of $2,847.33.</div>
-                        </div>
-                    </div>
-                </div>
-    </section>
-
-    <!-- Section 5: Feedback -->
-    <section id="feedback" class="py-16 px-4">
+    </section>     <section id="feedback" class="py-16 px-4">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">Help us build the future</h2>
+            
             
             <div class="bg-gray-50 rounded-xl shadow-sm overflow-hidden relative mb-8">
                 <div class="carousel-track" id="feedback-track">
@@ -700,8 +515,203 @@
                 <div class="flex justify-center gap-2 pb-6" id="feedback-dots"></div>
             </div>
         </div>
-    </section>
-
+    </section> 
+    <!-- Available Functions Section -->
+    <section id="functions" class="py-16 px-4 bg-gray-50">
+        <div class="max-w-5xl mx-auto">
+            <h3 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">What you can do with Penguin Bank MCP</h3>
+            
+            <div id="account-information" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
+                <h4 class="text-lg font-semibold mb-3">Account Information</h4>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_balance</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">What&#x27;s my current balance?</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">Your balance is $2,847.33 with $5,152.67 available credit</div>
+                    </div>
+                </div>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_credit_limit</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">What&#x27;s my credit limit?</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">Your credit limit is $8,000</div>
+                    </div>
+                </div>
+            </div>
+            <div id="transaction-history" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
+                <h4 class="text-lg font-semibold mb-3">Transaction History</h4>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_recent_transactions</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">Show me my last 5 purchases</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">Here are your last 5 transactions:<br>
+    • Whole Foods - $67.43 (Today)<br>
+    • Netflix - $15.99 (Yesterday)<br>
+    • Shell Gas Station - $45.20 (Mar 2)<br>
+    • Amazon - $129.99 (Mar 1)<br>
+    • Starbucks - $6.75 (Mar 1)</div>
+                    </div>
+                </div>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">search_transactions</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">How much did I spend at Whole Foods this month?</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">You spent $347.82 at Whole Foods across 8 transactions this month</div>
+                    </div>
+                </div>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_pending_charges</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">Any pending charges?</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">Yes, $42.99 from Netflix is still processing and should post within 1-2 business days</div>
+                    </div>
+                </div>
+            </div>
+            <div id="payments-transfers" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
+                <h4 class="text-lg font-semibold mb-3">Payments &amp; Transfers</h4>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">make_payment</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">Pay $200 toward my balance</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">✓ Payment of $200 scheduled for today. Your new balance will be $2,647.33</div>
+                    </div>
+                </div>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">schedule_payment</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">Set up autopay for minimum due on the 15th</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">✓ Autopay configured! Your minimum payment will be automatically paid on the 15th of each month</div>
+                    </div>
+                </div>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_payment_due_date</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">When is my payment due?</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">Your next payment of $35 (minimum due) is due on March 15th - that's in 12 days</div>
+                    </div>
+                </div>
+            </div>
+            <div id="card-management" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
+                <h4 class="text-lg font-semibold mb-3">Card Management</h4>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">freeze_card</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">I can&#x27;t find my card</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">🔒 I've frozen your card for you. No charges can be made until you unfreeze it. Just let me know when you find it!</div>
+                    </div>
+                </div>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">report_lost_card</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">My card was stolen</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">I've immediately cancelled your card and ordered a replacement. Your new card will arrive in 3-5 business days at your registered address. A temporary virtual card is available in your app.</div>
+                    </div>
+                </div>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">update_pin</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">Change my PIN to something new</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">I've sent a secure PIN update link to your phone ending in **7890. The link expires in 30 minutes for your security.</div>
+                    </div>
+                </div>
+            </div>
+            <div id="disputes-support" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
+                <h4 class="text-lg font-semibold mb-3">Disputes &amp; Support</h4>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">dispute_transaction</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">I didn&#x27;t make that $89 charge</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">I've filed a dispute for the $89 charge. You'll receive a provisional credit within 2 business days while we investigate. We'll email you updates on the dispute status.</div>
+                    </div>
+                </div>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="text-xs text-gray-500 mt-8 mb-6 text-left">
+                        <span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_statement</span> - coming soon
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-end">
+                        <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">I need my January statement</div>
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
+                    </div>
+                    <div class="flex gap-3 mb-4 items-start justify-start">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                        <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">📄 I've downloaded your January 2025 statement. It shows a starting balance of $1,245.67 and ending balance of $2,847.33.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
     <!-- Footer -->
     <footer id="footer" class="bg-gray-900 text-gray-400 py-12 px-4 text-center">
         <div class="max-w-5xl mx-auto">
@@ -712,10 +722,10 @@
                 <a href="#functions" class="text-gray-400 hover:text-white transition-colors duration-200">Functions</a>
                 <a href="#feedback" class="text-gray-400 hover:text-white transition-colors duration-200">Feedback</a>
             </div>
-            <p>Penguin Bank is a demonstration MCP server for AI-powered banking. &copy; 2025 Geoff Dudgeon.</p>
+            <p>Penguin Bank is a demonstration MCP server for AI-powered banking. © 2025 Geoff Dudgeon.</p>
         </div>
-    </footer>
-
+    </footer> 
+    <!-- JavaScript -->
     <script>
         // Carousel functionality
         const carousels = ['intro', 'features', 'connect', 'feedback'];
@@ -817,24 +827,20 @@
         }
         
         // Hero tagline cycling
-        const taglines = [
-            "Hey, Claude - please pay my credit card bill.",
-            "Hey, ChatGPT - please lock my card.",
-            "Hey, Gemini - how much did I spend on groceries this month?"
-        ];
+        const taglines = ["Hey, Claude - please pay my credit card bill.", "Hey, ChatGPT - please lock my card.", "Hey, Gemini - how much did I spend on groceries this month?"];
         
         let currentTaglineIndex = 0;
         const taglineElement = document.getElementById('hero-tagline');
         
-                 function cycleTagline() {
-             taglineElement.style.opacity = '0';
-             
-             setTimeout(() => {
-                 currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
-                 taglineElement.textContent = taglines[currentTaglineIndex];
-                 taglineElement.style.opacity = '1';
-             }, 500);
-         }
+        function cycleTagline() {
+            taglineElement.style.opacity = '0';
+            
+            setTimeout(() => {
+                currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
+                taglineElement.textContent = taglines[currentTaglineIndex];
+                taglineElement.style.opacity = '1';
+            }, 500);
+        }
         
         // Start cycling after initial load
         setTimeout(() => {
@@ -884,7 +890,5 @@
                 }, 2000);
             }
         }
-        
-    </script>
-</body>
+    </script> </body>
 </html> 

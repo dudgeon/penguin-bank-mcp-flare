@@ -1,0 +1,65 @@
+<section id="{{this.section_id}}" class="py-16 px-4{{#if this.background_class}} {{this.background_class}}{{/if}}">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">{{this.section_title}}</h2>
+        
+        {{#if this.copy_url}}
+        <div class="copy-url-container max-w-3xl mx-auto mb-12 flex flex-col items-center gap-4">
+            <p class="copy-url-text text-center text-lg text-gray-600 m-0">{{this.copy_url.text}}</p>
+            
+            <div class="w-full max-w-96">
+                <div class="relative">
+                    <input 
+                        id="{{this.copy_url.field_id}}" 
+                        type="text" 
+                        value="{{this.copy_url.url}}" 
+                        readonly 
+                        class="w-full bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg py-4 pr-16 pl-3 font-mono"
+                    />
+                    <button 
+                        onclick="copyMcpUrl()" 
+                        class="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-900 bg-white border border-gray-200 rounded-lg py-2 px-2.5 inline-flex items-center justify-center h-8 hover:bg-gray-100 transition-all duration-200"
+                    >
+                        <span id="{{this.copy_url.copy_icon_id}}" class="inline-flex items-center">
+                            <svg class="w-3 h-3 mr-1.5" fill="currentColor" viewBox="0 0 18 20">
+                                <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
+                            </svg>
+                            <span class="text-xs font-semibold">Copy</span>
+                        </span>
+                        <span id="{{this.copy_url.copied_icon_id}}" class="hidden inline-flex items-center">
+                            <svg class="w-3 h-3 mr-1.5 text-penguin-primary" fill="none" stroke="currentColor" viewBox="0 0 16 12">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                            </svg>
+                            <span class="text-xs font-semibold text-penguin-primary">Copied</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        
+        <div class="bg-{{#if this.background_class}}white{{else}}gray-50{{/if}} rounded-xl shadow-sm overflow-hidden relative mb-8">
+            <div class="carousel-track" id="{{this.track_id}}">
+                {{#each this.slides}}
+                <div class="carousel-slide py-12 px-8 md:py-12 md:px-8">
+                    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                        <div class="w-full h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500 order-1{{#if (isOdd @index)}} md:order-2{{/if}}">
+                            {{> icon iconName=this.icon}}
+                        </div>
+                        <div class="order-2{{#if (isOdd @index)}} md:order-1{{/if}}">
+                            <h3 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">{{this.title}}</h3>
+                            <ul class="space-y-5 text-gray-600 text-lg leading-relaxed list-none">
+                                {{#each this.bullets}}
+                                <li class="flex items-start">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="carousel-nav absolute top-1/2 -translate-y-1/2 left-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('{{@key}}', -1)">‹</div>
+            <div class="carousel-nav absolute top-1/2 -translate-y-1/2 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('{{@key}}', 1)">›</div>
+            <div class="flex justify-center gap-2 pb-6" id="{{this.dots_id}}"></div>
+        </div>
+    </div>
+</section> 

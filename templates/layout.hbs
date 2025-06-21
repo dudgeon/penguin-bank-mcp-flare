@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐧💳 {{title}}</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'penguin': {
+                            'primary': '#22c55e',
+                            'dark': '#16a34a',
+                            'light': '#86efac',
+                            'pale': '#dcfce7'
+                        }
+                    },
+                    fontFamily: {
+                        'mono': ['SF Mono', 'Monaco', 'Cascadia Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/penguin_icon_32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/penguin_icon_16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/penguin_icon_180x180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/penguin_icon_152x152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/penguin_icon_120x120.png">
+    <link rel="manifest" href="/manifest.json">
+    
+    <style>
+        /* Custom animations and complex carousel styles that are hard to replicate with Tailwind */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        .penguin-gradient {
+            background: linear-gradient(135deg, #DFF4F3 0%, #BEE5E4 100%);
+        }
+        
+        .hero-tagline-cycling {
+            transition: opacity 1s ease-in-out;
+        }
+        
+        /* Carousel specific styles */
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+        }
+        
+        .carousel-nav {
+            opacity: 0.7;
+            transition: all 0.2s;
+        }
+        
+        .bg-gray-50:hover .carousel-nav,
+        .bg-white:hover .carousel-nav {
+            opacity: 1;
+        }
+        
+        .carousel-nav:hover {
+            opacity: 1 !important;
+            background: #dcfce7 !important;
+            transform: scale(1.1);
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d1d5db;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .dot.active {
+            background: #22c55e !important;
+        }
+        
+        /* Temporary CSS for remaining unconverted chat containers */
+        .chat-container {
+            max-width: 32rem;
+            margin: 0 auto 2rem auto;
+        }
+        
+        .function-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .code-style {
+            font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+            background: #f3f4f6;
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            color: #22c55e;
+            font-weight: 500;
+        }
+        
+        .chat-message {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+        
+        .chat-message.user {
+            justify-content: flex-end;
+        }
+        
+        .chat-message.user .chat-avatar {
+            order: 2;
+        }
+        
+        .chat-avatar {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+        
+        .chat-message.user .chat-avatar {
+            background: #3b82f6;
+        }
+        
+        .chat-message.assistant .chat-avatar {
+            background: #e5e7eb;
+        }
+        
+        .chat-bubble {
+            padding: 0.75rem 1rem;
+            border-radius: 1rem;
+            max-width: 18rem;
+            word-wrap: break-word;
+        }
+        
+        .chat-message.user .chat-bubble {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .chat-message.assistant .chat-bubble {
+            background: #e5e7eb;
+            color: #111827;
+        }
+        
+        /* Responsive adjustments for copy URL container */
+        @media (min-width: 768px) {
+            .copy-url-container {
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 2rem !important;
+            }
+            
+            .copy-url-text {
+                text-align: left !important;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans leading-relaxed text-gray-900">
+
+    <!-- Hero Section -->
+    {{> hero}}
+
+    <!-- Carousel Sections -->
+    {{#each carousels}}
+    {{> carousel}}
+    {{/each}}
+
+    <!-- Available Functions Section -->
+    {{> functions}}
+
+    <!-- Footer -->
+    {{> footer}}
+
+    <!-- JavaScript -->
+    {{> scripts}}
+</body>
+</html> 

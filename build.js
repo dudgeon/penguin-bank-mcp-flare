@@ -1,0 +1,105 @@
+const fs = require('fs-extra');
+const matter = require('gray-matter');
+const Handlebars = require('handlebars');
+const path = require('path');
+
+// Register Handlebars helpers
+Handlebars.registerHelper('switch', function(value, options) {
+    this.switch_value = value;
+    return options.fn(this);
+});
+
+Handlebars.registerHelper('case', function(value, options) {
+    if (value === this.switch_value) {
+        return options.fn(this);
+    }
+});
+
+Handlebars.registerHelper('default', function(options) {
+    return options.fn(this);
+});
+
+Handlebars.registerHelper('isOdd', function(index) {
+    return index % 2 === 1;
+});
+
+Handlebars.registerHelper('formatResponse', function(response) {
+    // Convert newlines to <br> tags for HTML display
+    return response.replace(/\n/g, '<br>\n');
+});
+
+Handlebars.registerHelper('eq', function(a, b) {
+    return a === b;
+});
+
+async function registerPartials() {
+    const partialsDir = path.join(__dirname, 'templates', 'partials');
+    const partialFiles = await fs.readdir(partialsDir);
+    
+    for (const file of partialFiles) {
+        if (file.endsWith('.hbs')) {
+            const partialName = path.basename(file, '.hbs');
+            const partialContent = await fs.readFile(path.join(partialsDir, file), 'utf8');
+            Handlebars.registerPartial(partialName, partialContent);
+        }
+    }
+}
+
+async function build() {
+    try {
+        console.log('🔨 Starting build process...');
+        
+        // Register partials
+        await registerPartials();
+        console.log('✅ Partials registered');
+        
+        // Read content file
+        const contentFile = await fs.readFile('content/index.md', 'utf8');
+        const { data } = matter(contentFile);
+        console.log('✅ Content parsed');
+        
+        // Read main template
+        const templateFile = await fs.readFile('templates/layout.hbs', 'utf8');
+        const template = Handlebars.compile(templateFile);
+        console.log('✅ Template compiled');
+        
+        // Generate HTML
+        const html = template(data);
+        console.log('✅ HTML generated');
+        
+        // Ensure public directory exists
+        await fs.ensureDir('public');
+        
+        // Write to public directory
+        await fs.writeFile('public/index.html', html);
+        console.log('✅ Generated public/index.html');
+        
+        // Copy static assets if they don't exist in public
+        const assetsToCheck = [
+            'images',
+            'favicon.ico',
+            'manifest.json'
+        ];
+        
+        for (const asset of assetsToCheck) {
+            const publicPath = path.join('public', asset);
+            if (!(await fs.pathExists(publicPath))) {
+                console.log(`⚠️  Warning: ${asset} not found in public directory`);
+            }
+        }
+        
+        console.log('🎉 Build completed successfully!');
+        console.log('📁 Output: public/index.html');
+        
+    } catch (error) {
+        console.error('❌ Build failed:', error);
+        process.exit(1);
+    }
+}
+
+// Run build if this script is called directly
+if (require.main === module) {
+    build();
+}
+
+module.exports = { build }; 

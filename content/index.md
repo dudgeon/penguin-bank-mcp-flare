@@ -1,6 +1,6 @@
 ---
 title: "Penguin Bank - AI-Powered Banking"
-description: "AI assistants are getting more helpful. Banking made simple with MCP integration."
+description: "AI assistants are getting more helpful. Banking made simple with MCP integration. Auto-building with SSG!"
 layout: "home"
 
 # Hero Section Data

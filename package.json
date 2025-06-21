@@ -1,0 +1,23 @@
+{
+  "name": "penguin-bank-ssg",
+  "version": "1.0.0",
+  "description": "Static Site Generator for Penguin Bank",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "npm run build && npx serve public -l 3000",
+    "watch": "nodemon --watch content --watch templates --exec 'npm run build'"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "handlebars": "^4.7.8",
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "serve": "^14.2.1"
+  },
+  "keywords": ["ssg", "static-site-generator", "penguin-bank"],
+  "author": "Geoff Dudgeon",
+  "license": "MIT"
+} 
