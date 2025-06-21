@@ -69,6 +69,19 @@ export class MyMCP extends McpAgent {
 			})
 		);
 
+		// About Penguin Bank tool
+		this.server.tool(
+			"about-penguin-bank",
+			"Learn about Penguin Bank's mission, vision, and approach to AI-powered banking",
+			{},
+			async () => ({
+				content: [{ 
+					type: "text", 
+					text: "Penguin Bank is a glimpse at the very near future, where customers use their AI tools like ChatGPT and Claude for every facet of their lives -- so of course they will use it for banking tasks. Now, with the arrival and embrace of MCP (Model Context Protocol), we know how this will happen. The only question is when, and which bank will get there first." 
+				}],
+			})
+		);
+
 		// Executive team information tool
 		this.server.tool(
 			"get_executive_team",
