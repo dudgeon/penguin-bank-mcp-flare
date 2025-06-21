@@ -20,7 +20,7 @@ carousels:
     track_id: "intro-track"
     dots_id: "intro-dots"
     slides:
-      - title: "You already use AI for everyday tasks"
+      - title: "People are using AI assistants in more ways every day"
         icon: "shield-check"
         bullets:
           - "Search your Gmail and calendar directly in Claude"
