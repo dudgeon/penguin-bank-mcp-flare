@@ -47,7 +47,7 @@ Handlebars.registerHelper('markdownInline', function(text) {
     // Simple inline markdown parsing - just links and basic formatting
     let result = text
         // Parse links: [text](url) -> <a href="url">text</a>
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-penguin-primary hover:text-penguin-dark underline">$1</a>')
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="underline decoration-gray-400 hover:decoration-gray-600">$1</a>')
         // Parse bold: **text** -> <strong>text</strong>
         .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
         // Parse italic: *text* -> <em>text</em>

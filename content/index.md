@@ -280,8 +280,8 @@ EXAMPLE SSG TEMPLATE USAGE (Liquid/Nunjucks style):
   </div>
 </section>
 {% endfor %}
--->
 
 # Penguin Bank - AI-Powered Banking
 
-*This content is managed in structured YAML frontmatter above for SSG generation. The SSG should use the data structures to programmatically generate carousel slides, function cards, and other dynamic content rather than hardcoding HTML elements.* 
+*This content is managed in structured YAML frontmatter above for SSG generation. The SSG should use the data structures to programmatically generate carousel slides, function cards, and other dynamic content rather than hardcoding HTML elements.*
+--> 
