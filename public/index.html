@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penguin Bank - AI-Powered Banking</title>
+    <title>🐧💳 Penguin Bank - AI-Powered Banking</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -66,25 +66,22 @@
         }
         
         .carousel-nav {
-            opacity: 0;
+            opacity: 0.7;
             transition: all 0.2s;
         }
         
-        .carousel-container:hover .carousel-nav {
+        .bg-gray-50:hover .carousel-nav,
+        .bg-white:hover .carousel-nav {
             opacity: 1;
         }
         
         .carousel-nav:hover {
+            opacity: 1 !important;
             background: #dcfce7 !important;
+            transform: scale(1.1);
         }
         
-        .carousel-bullets li:before {
-            content: "→";
-            color: #22c55e;
-            font-weight: bold;
-            margin-right: 0.75rem;
-            flex-shrink: 0;
-        }
+
         
         .dot {
             width: 8px;
@@ -99,9 +96,81 @@
             background: #22c55e !important;
         }
         
-        /* Chat message ordering for user messages */
+
+        
+        /* Temporary CSS for remaining unconverted chat containers */
+        .chat-container {
+            max-width: 32rem;
+            margin: 0 auto 2rem auto;
+        }
+        
+        .function-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .code-style {
+            font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+            background: #f3f4f6;
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            color: #22c55e;
+            font-weight: 500;
+        }
+        
+        .chat-message {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+        
+        .chat-message.user {
+            justify-content: flex-end;
+        }
+        
         .chat-message.user .chat-avatar {
             order: 2;
+        }
+        
+        .chat-avatar {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+        
+        .chat-message.user .chat-avatar {
+            background: #3b82f6;
+        }
+        
+        .chat-message.assistant .chat-avatar {
+            background: #e5e7eb;
+        }
+        
+        .chat-bubble {
+            padding: 0.75rem 1rem;
+            border-radius: 1rem;
+            max-width: 18rem;
+            word-wrap: break-word;
+        }
+        
+        .chat-message.user .chat-bubble {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .chat-message.assistant .chat-bubble {
+            background: #e5e7eb;
+            color: #111827;
         }
         
         /* Responsive adjustments for copy URL container */
@@ -124,14 +193,14 @@
 <body class="font-sans leading-relaxed text-gray-900">
 
     <!-- Hero Section -->
-    <header class="penguin-gradient py-16 px-4">
+    <header id="hero" class="penguin-gradient py-16 px-4">
         <div class="max-w-5xl mx-auto fade-in">
             <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
                 <div class="text-center md:flex-shrink-0">
                     <img src="/images/penguin_icon_256x256.png" alt="Penguin Bank" class="w-48 h-auto drop-shadow-2xl">
                 </div>
                 <div class="text-center md:text-left">
-                    <p class="hero-tagline-cycling text-3xl md:text-4xl italic font-light text-gray-600 leading-relaxed w-full max-w-xl mx-auto md:mx-0 min-h-20 md:min-h-16 flex items-center" id="hero-tagline">Hey, Claude - please pay my credit card bill.</p>
+                    <p class="hero-tagline-cycling text-3xl md:text-4xl italic font-light text-gray-600 leading-relaxed w-96 md:w-[600px] mx-auto md:mx-0 min-h-20 md:min-h-16 flex items-center" id="hero-tagline">Hey, Claude - please pay my credit card bill.</p>
                 </div>
             </div>
         </div>
@@ -213,68 +282,68 @@
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">Banking made simple</h2>
             
-            <div class="carousel-container" style="background: white;">
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden relative mb-8">
                 <div class="carousel-track" id="features-track">
-                    <div class="carousel-slide">
-                        <div class="carousel-card">
-                            <div class="carousel-image">
-                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <div class="carousel-slide py-12 px-8 md:py-12 md:px-8">
+                        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                            <div class="w-full h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500 order-1">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-30 h-30 stroke-gray-400">
                                     <path d="M3 3v18h18"/>
                                     <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
                                 </svg>
                             </div>
-                            <div class="carousel-content">
-                                <h3>Check recent transactions</h3>
-                                <ul class="carousel-bullets">
-                                    <li>View spending by category or merchant</li>
-                                    <li>Search transactions with natural language</li>
-                                    <li>Get instant insights about your habits</li>
+                            <div class="order-2">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Check recent transactions</h3>
+                                <ul class="space-y-5 text-gray-600 text-lg leading-relaxed list-none">
+                                    <li class="flex items-start">View spending by category or merchant</li>
+                                    <li class="flex items-start">Search transactions with natural language</li>
+                                    <li class="flex items-start">Get instant insights about your habits</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-card image-right">
-                            <div class="carousel-image">
-                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <div class="carousel-slide py-12 px-8 md:py-12 md:px-8">
+                        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                            <div class="w-full h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500 order-1 md:order-2">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-30 h-30 stroke-gray-400">
                                     <rect x="2" y="5" width="20" height="14" rx="2"/>
                                     <line x1="2" y1="10" x2="22" y2="10"/>
                                     <path d="M12 15h.01"/>
                                 </svg>
                             </div>
-                            <div class="carousel-content">
-                                <h3>Make payments</h3>
-                                <ul class="carousel-bullets">
-                                    <li>Pay any amount with simple commands</li>
-                                    <li>Schedule future payments easily</li>
-                                    <li>Set up autopay in seconds</li>
+                            <div class="order-2 md:order-1">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Make payments</h3>
+                                <ul class="space-y-5 text-gray-600 text-lg leading-relaxed list-none">
+                                    <li class="flex items-start">Pay any amount with simple commands</li>
+                                    <li class="flex items-start">Schedule future payments easily</li>
+                                    <li class="flex items-start">Set up autopay in seconds</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-card">
-                            <div class="carousel-image">
-                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <div class="carousel-slide py-12 px-8 md:py-12 md:px-8">
+                        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                            <div class="w-full h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500 order-1">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-30 h-30 stroke-gray-400">
                                     <path d="M21 8V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2h6"/>
                                     <circle cx="18" cy="18" r="3"/>
                                     <path d="M22 22l-1.5-1.5"/>
                                 </svg>
                             </div>
-                            <div class="carousel-content">
-                                <h3>Order replacement cards</h3>
-                                <ul class="carousel-bullets">
-                                    <li>Instantly freeze lost or stolen cards</li>
-                                    <li>Order replacements with one request</li>
-                                    <li>Get virtual card access immediately</li>
+                            <div class="order-2">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Order replacement cards</h3>
+                                <ul class="space-y-5 text-gray-600 text-lg leading-relaxed list-none">
+                                    <li class="flex items-start">Instantly freeze lost or stolen cards</li>
+                                    <li class="flex items-start">Order replacements with one request</li>
+                                    <li class="flex items-start">Get virtual card access immediately</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-nav prev" onclick="navigateCarousel('features', -1)">‹</div>
-                <div class="carousel-nav next" onclick="navigateCarousel('features', 1)">›</div>
-                <div class="carousel-dots" id="features-dots"></div>
+                <div class="carousel-nav absolute top-1/2 -translate-y-1/2 left-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('features', -1)">‹</div>
+                <div class="carousel-nav absolute top-1/2 -translate-y-1/2 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('features', 1)">›</div>
+                <div class="flex justify-center gap-2 pb-6" id="features-dots"></div>
             </div>
         </div>
     </section>
@@ -317,31 +386,31 @@
                 </div>
             </div>
             
-            <div class="carousel-container">
+            <div class="bg-gray-50 rounded-xl shadow-sm overflow-hidden relative mb-8">
                 <div class="carousel-track" id="connect-track">
-                    <div class="carousel-slide">
-                        <div class="carousel-card">
-                            <div class="carousel-image">
-                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <div class="carousel-slide py-12 px-8 md:py-12 md:px-8">
+                        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                            <div class="w-full h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500 order-1">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-30 h-30 stroke-gray-400">
                                     <circle cx="12" cy="12" r="10"/>
                                     <path d="M2 12h20"/>
                                     <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
                                 </svg>
                             </div>
-                            <div class="carousel-content">
-                                <h3>Cloudflare Playground</h3>
-                                <ul class="carousel-bullets">
-                                    <li>Try Penguin Bank instantly in your browser</li>
-                                    <li>No setup or installation required</li>
-                                    <li>Perfect for testing before connecting</li>
+                            <div class="order-2">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Cloudflare Playground</h3>
+                                <ul class="space-y-5 text-gray-600 text-lg leading-relaxed list-none">
+                                    <li class="flex items-start">Try Penguin Bank instantly in your browser</li>
+                                    <li class="flex items-start">No setup or installation required</li>
+                                    <li class="flex items-start">Perfect for testing before connecting</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-card image-right">
-                            <div class="carousel-image">
-                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <div class="carousel-slide py-12 px-8 md:py-12 md:px-8">
+                        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                            <div class="w-full h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500 order-1 md:order-2">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-30 h-30 stroke-gray-400">
                                     <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
                                     <rect x="9" y="9" width="6" height="6"/>
                                     <line x1="9" y1="1" x2="9" y2="4"/>
@@ -354,37 +423,37 @@
                                     <line x1="1" y1="14" x2="4" y2="14"/>
                                 </svg>
                             </div>
-                            <div class="carousel-content">
-                                <h3>Connect to Claude Desktop</h3>
-                                <ul class="carousel-bullets">
-                                    <li>Add Penguin Bank to your Claude config</li>
-                                    <li>Enjoy seamless banking in your workflow</li>
-                                    <li>Works with all Claude Desktop features</li>
+                            <div class="order-2 md:order-1">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Connect to Claude Desktop</h3>
+                                <ul class="space-y-5 text-gray-600 text-lg leading-relaxed list-none">
+                                    <li class="flex items-start">Add Penguin Bank to your Claude config</li>
+                                    <li class="flex items-start">Enjoy seamless banking in your workflow</li>
+                                    <li class="flex items-start">Works with all Claude Desktop features</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-card">
-                            <div class="carousel-image">
-                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <div class="carousel-slide py-12 px-8 md:py-12 md:px-8">
+                        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                            <div class="w-full h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500 order-1">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-30 h-30 stroke-gray-400">
                                     <path d="M14.5 4h-5L7 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2v-9a2 2 0 00-2-2h-4m-6 0V9a3 3 0 116 0v2m-6 0h6"/>
                                 </svg>
                             </div>
-                            <div class="carousel-content">
-                                <h3>Other MCP Clients</h3>
-                                <ul class="carousel-bullets">
-                                    <li>Works with any MCP-compatible client</li>
-                                    <li>Future-proof your banking integration</li>
-                                    <li>Part of the growing MCP ecosystem</li>
+                            <div class="order-2">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Other MCP Clients</h3>
+                                <ul class="space-y-5 text-gray-600 text-lg leading-relaxed list-none">
+                                    <li class="flex items-start">Works with any MCP-compatible client</li>
+                                    <li class="flex items-start">Future-proof your banking integration</li>
+                                    <li class="flex items-start">Part of the growing MCP ecosystem</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-nav prev" onclick="navigateCarousel('connect', -1)">‹</div>
-                <div class="carousel-nav next" onclick="navigateCarousel('connect', 1)">›</div>
-                <div class="carousel-dots" id="connect-dots"></div>
+                <div class="carousel-nav absolute top-1/2 -translate-y-1/2 left-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('connect', -1)">‹</div>
+                <div class="carousel-nav absolute top-1/2 -translate-y-1/2 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('connect', 1)">›</div>
+                <div class="flex justify-center gap-2 pb-6" id="connect-dots"></div>
             </div>
         </div>
     </section>
@@ -394,7 +463,7 @@
         <div class="max-w-5xl mx-auto">
             <h3 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">What you can do with Penguin Bank MCP</h3>
                     
-            <div class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
+            <div id="account-information" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
                     <h4 class="text-lg font-semibold mb-3">Account Information</h4>
                     <div class="max-w-2xl mx-auto mb-8">
                         <div class="text-xs text-gray-500 mt-8 mb-6 text-left"><span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_balance</span> - coming soon</div>
@@ -407,30 +476,30 @@
                             <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">Your balance is $2,847.33 with $5,152.67 available credit</div>
                         </div>
                     </div>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">get_credit_limit</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">What's my credit limit?</div>
+                    <div class="max-w-2xl mx-auto mb-8">
+                        <div class="text-xs text-gray-500 mt-8 mb-6 text-left"><span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_credit_limit</span> - coming soon</div>
+                        <div class="flex gap-3 mb-4 items-start justify-end">
+                            <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">What's my credit limit?</div>
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
                         </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">Your credit limit is $8,000</div>
+                        <div class="flex gap-3 mb-4 items-start justify-start">
+                            <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                            <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">Your credit limit is $8,000</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <h4>Transaction History</h4>
-                    <div class="chat-container">
-                        <div class="function-label"><span class="code-style">get_recent_transactions</span> - coming soon</div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">🧑🏼</div>
-                            <div class="chat-bubble">Show me my last 5 purchases</div>
+            <div id="transaction-history" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
+                    <h4 class="text-lg font-semibold mb-3">Transaction History</h4>
+                    <div class="max-w-2xl mx-auto mb-8">
+                        <div class="text-xs text-gray-500 mt-8 mb-6 text-left"><span class="font-mono bg-gray-100 px-2 py-1 rounded text-sm text-penguin-primary font-medium">get_recent_transactions</span> - coming soon</div>
+                        <div class="flex gap-3 mb-4 items-start justify-end">
+                            <div class="bg-blue-500 text-white py-3 px-4 rounded-2xl max-w-xs break-words">Show me my last 5 purchases</div>
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-base order-2">🧑🏼</div>
                         </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🐧</div>
-                            <div class="chat-bubble">Here are your last 5 transactions:<br>
+                        <div class="flex gap-3 mb-4 items-start justify-start">
+                            <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 text-base">🐧</div>
+                            <div class="bg-gray-200 text-gray-900 py-3 px-4 rounded-2xl max-w-xs break-words">Here are your last 5 transactions:<br>
                             • Whole Foods - $67.43 (Today)<br>
                             • Netflix - $15.99 (Yesterday)<br>
                             • Shell Gas Station - $45.20 (Mar 2)<br>
@@ -462,8 +531,8 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <h4>Payments & Transfers</h4>
+            <div id="payments-transfers" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
+                    <h4 class="text-lg font-semibold mb-3">Payments & Transfers</h4>
                     <div class="chat-container">
                         <div class="function-label"><span class="code-style">make_payment</span> - coming soon</div>
                         <div class="chat-message user">
@@ -499,8 +568,8 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <h4>Card Management</h4>
+            <div id="card-management" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
+                    <h4 class="text-lg font-semibold mb-3">Card Management</h4>
                     <div class="chat-container">
                         <div class="function-label"><span class="code-style">freeze_card</span> - coming soon</div>
                         <div class="chat-message user">
@@ -536,8 +605,8 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <h4>Disputes & Support</h4>
+            <div id="disputes-support" class="bg-white rounded-xl p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg mb-6">
+                    <h4 class="text-lg font-semibold mb-3">Disputes & Support</h4>
                     <div class="chat-container">
                         <div class="function-label"><span class="code-style">dispute_transaction</span> - coming soon</div>
                         <div class="chat-message user">
@@ -564,33 +633,33 @@
     </section>
 
     <!-- Section 5: Feedback -->
-    <section id="feedback" class="section-padding">
-        <div class="container">
-            <h2 style="text-align: center;">Help us build the future</h2>
+    <section id="feedback" class="py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">Help us build the future</h2>
             
-            <div class="carousel-container">
+            <div class="bg-gray-50 rounded-xl shadow-sm overflow-hidden relative mb-8">
                 <div class="carousel-track" id="feedback-track">
-                    <div class="carousel-slide">
-                        <div class="carousel-card">
-                            <div class="carousel-image">
-                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <div class="carousel-slide py-12 px-8 md:py-12 md:px-8">
+                        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                            <div class="w-full h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500 order-1">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-30 h-30 stroke-gray-400">
                                     <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
                                 </svg>
                             </div>
-                            <div class="carousel-content">
-                                <h3>What features do you want?</h3>
-                                <ul class="carousel-bullets">
-                                    <li>Investment account integration</li>
-                                    <li>Budgeting and savings goals</li>
-                                    <li>Multi-bank account management</li>
+                            <div class="order-2">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">What features do you want?</h3>
+                                <ul class="space-y-5 text-gray-600 text-lg leading-relaxed list-none">
+                                    <li class="flex items-start">Investment account integration</li>
+                                    <li class="flex items-start">Budgeting and savings goals</li>
+                                    <li class="flex items-start">Multi-bank account management</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-card image-right">
-                            <div class="carousel-image">
-                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <div class="carousel-slide py-12 px-8 md:py-12 md:px-8">
+                        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                            <div class="w-full h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500 order-1 md:order-2">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-30 h-30 stroke-gray-400">
                                     <path d="M9 12l2 2 4-4"/>
                                     <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
                                     <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
@@ -598,43 +667,43 @@
                                     <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
                                 </svg>
                             </div>
-                            <div class="carousel-content">
-                                <h3>How can we improve?</h3>
-                                <ul class="carousel-bullets">
-                                    <li>Better natural language understanding</li>
-                                    <li>More detailed transaction insights</li>
-                                    <li>Faster response times and reliability</li>
+                            <div class="order-2 md:order-1">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">How can we improve?</h3>
+                                <ul class="space-y-5 text-gray-600 text-lg leading-relaxed list-none">
+                                    <li class="flex items-start">Better natural language understanding</li>
+                                    <li class="flex items-start">More detailed transaction insights</li>
+                                    <li class="flex items-start">Faster response times and reliability</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-card">
-                            <div class="carousel-image">
-                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <div class="carousel-slide py-12 px-8 md:py-12 md:px-8">
+                        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                            <div class="w-full h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-500 order-1">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-30 h-30 stroke-gray-400">
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                                 </svg>
                             </div>
-                            <div class="carousel-content">
-                                <h3>Share your experience</h3>
-                                <ul class="carousel-bullets">
-                                    <li>Tell us what works well for you</li>
-                                    <li>Report any issues or bugs you find</li>
-                                    <li>Suggest new use cases and workflows</li>
+                            <div class="order-2">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Share your experience</h3>
+                                <ul class="space-y-5 text-gray-600 text-lg leading-relaxed list-none">
+                                    <li class="flex items-start">Tell us what works well for you</li>
+                                    <li class="flex items-start">Report any issues or bugs you find</li>
+                                    <li class="flex items-start">Suggest new use cases and workflows</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-nav prev" onclick="navigateCarousel('feedback', -1)">‹</div>
-                <div class="carousel-nav next" onclick="navigateCarousel('feedback', 1)">›</div>
-                <div class="carousel-dots" id="feedback-dots"></div>
+                <div class="carousel-nav absolute top-1/2 -translate-y-1/2 left-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('feedback', -1)">‹</div>
+                <div class="carousel-nav absolute top-1/2 -translate-y-1/2 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('feedback', 1)">›</div>
+                <div class="flex justify-center gap-2 pb-6" id="feedback-dots"></div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12 px-4 text-center">
+    <footer id="footer" class="bg-gray-900 text-gray-400 py-12 px-4 text-center">
         <div class="max-w-5xl mx-auto">
             <div class="flex justify-center gap-8 mb-8 flex-wrap">
                 <a href="#intro" class="text-gray-400 hover:text-white transition-colors duration-200">About MCPs</a>
