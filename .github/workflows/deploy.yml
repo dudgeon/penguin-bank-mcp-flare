@@ -1,0 +1,156 @@
+name: Deploy to Cloudflare
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  # Job to detect changes and set up matrix for conditional deployments
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      pages: ${{ steps.changes.outputs.pages }}
+      worker: ${{ steps.changes.outputs.worker }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for changes
+        uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            pages:
+              - 'public/**'
+              - 'wrangler.jsonc'
+              - '.github/workflows/deploy.yml'
+            worker:
+              - 'my-mcp-server/**'
+              - '.github/workflows/deploy.yml'
+
+  # Deploy static site to Cloudflare Pages
+  deploy-pages:
+    runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.pages == 'true' || github.event_name == 'push'
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=penguin-bank --compatibility-date=2025-03-10
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+  # Deploy MCP Worker
+  deploy-worker:
+    runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.worker == 'true' || github.event_name == 'push'
+    defaults:
+      run:
+        working-directory: ./my-mcp-server
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: './my-mcp-server/package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Lint
+        run: npm run lint:fix
+
+      - name: Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: './my-mcp-server'
+          command: deploy
+
+  # Optional: Run tests if they exist
+  test:
+    runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.worker == 'true'
+    defaults:
+      run:
+        working-directory: ./my-mcp-server
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: './my-mcp-server/package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test --if-present
+
+  # Summary job that depends on all deployments
+  deploy-summary:
+    runs-on: ubuntu-latest
+    needs: [changes, deploy-pages, deploy-worker]
+    if: always()
+    steps:
+      - name: Deployment Summary
+        run: |
+          echo "## Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [[ "${{ needs.changes.outputs.pages }}" == "true" || "${{ github.event_name }}" == "push" ]]; then
+            if [[ "${{ needs.deploy-pages.result }}" == "success" ]]; then
+              echo "✅ **Pages**: Successfully deployed to Cloudflare Pages" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "❌ **Pages**: Deployment failed" >> $GITHUB_STEP_SUMMARY
+            fi
+          else
+            echo "⏭️ **Pages**: No changes detected, skipped deployment" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.changes.outputs.worker }}" == "true" || "${{ github.event_name }}" == "push" ]]; then
+            if [[ "${{ needs.deploy-worker.result }}" == "success" ]]; then
+              echo "✅ **Worker**: Successfully deployed MCP server" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "❌ **Worker**: Deployment failed" >> $GITHUB_STEP_SUMMARY
+            fi
+          else
+            echo "⏭️ **Worker**: No changes detected, skipped deployment" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🔗 **Links:**" >> $GITHUB_STEP_SUMMARY
+          echo "- [Cloudflare Dashboard](https://dash.cloudflare.com)" >> $GITHUB_STEP_SUMMARY
+          echo "- [Pages Project](https://dash.cloudflare.com/pages)" >> $GITHUB_STEP_SUMMARY
+          echo "- [Workers Project](https://dash.cloudflare.com/workers)" >> $GITHUB_STEP_SUMMARY 
