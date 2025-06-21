@@ -114,13 +114,13 @@ COMPONENT CLASSES:
 
 #### Get Balance Function
 <!-- HTML: <div class="chat-container"> with function-label and chat-message elements -->
-**Function:** `get_balance`
+**Function:** `get_balance` - coming soon
 **User:** "What's my current balance?"
 **Response:** "Your balance is $2,847.33 with $5,152.67 available credit"
 
 #### Get Credit Limit Function
 <!-- HTML: <div class="chat-container"> with function-label and chat-message elements -->
-**Function:** `get_credit_limit`
+**Function:** `get_credit_limit` - coming soon
 **User:** "What's my credit limit?"
 **Response:** "Your credit limit is $8,000"
 
@@ -129,7 +129,7 @@ COMPONENT CLASSES:
 
 #### Get Recent Transactions Function
 <!-- HTML: <div class="chat-container"> with function-label and chat-message elements -->
-**Function:** `get_recent_transactions`
+**Function:** `get_recent_transactions` - coming soon
 **User:** "Show me my last 5 purchases"
 **Response:** "Here are your last 5 transactions:
 • Whole Foods - $67.43 (Today)
@@ -139,12 +139,12 @@ COMPONENT CLASSES:
 • Starbucks - $6.75 (Mar 1)"
 
 #### Search Transactions Function
-**Function:** `search_transactions`
+**Function:** `search_transactions` - coming soon
 **User:** "How much did I spend at Whole Foods this month?"
 **Response:** "You spent $347.82 at Whole Foods across 8 transactions this month"
 
 #### Get Pending Charges Function
-**Function:** `get_pending_charges`
+**Function:** `get_pending_charges` - coming soon
 **User:** "Any pending charges?"
 **Response:** "Yes, $42.99 from Netflix is still processing and should post within 1-2 business days"
 
@@ -153,17 +153,17 @@ COMPONENT CLASSES:
 
 #### Make Payment Function
 <!-- HTML: <div class="chat-container"> with function-label and chat-message elements -->
-**Function:** `make_payment`
+**Function:** `make_payment` - coming soon
 **User:** "Pay $200 toward my balance"
 **Response:** "✓ Payment of $200 scheduled for today. Your new balance will be $2,647.33"
 
 #### Schedule Payment Function
-**Function:** `schedule_payment`
+**Function:** `schedule_payment` - coming soon
 **User:** "Set up autopay for minimum due on the 15th"
 **Response:** "✓ Autopay configured! Your minimum payment will be automatically paid on the 15th of each month"
 
 #### Get Payment Due Date Function
-**Function:** `get_payment_due_date`
+**Function:** `get_payment_due_date` - coming soon
 **User:** "When is my payment due?"
 **Response:** "Your next payment of $35 (minimum due) is due on March 15th - that's in 12 days"
 
@@ -172,17 +172,17 @@ COMPONENT CLASSES:
 
 #### Freeze Card Function
 <!-- HTML: <div class="chat-container"> with function-label and chat-message elements -->
-**Function:** `freeze_card`
+**Function:** `freeze_card` - coming soon
 **User:** "I can't find my card"
 **Response:** "🔒 I've frozen your card for you. No charges can be made until you unfreeze it. Just let me know when you find it!"
 
 #### Report Lost Card Function
-**Function:** `report_lost_card`
+**Function:** `report_lost_card` - coming soon
 **User:** "My card was stolen"
 **Response:** "I've immediately cancelled your card and ordered a replacement. Your new card will arrive in 3-5 business days at your registered address. A temporary virtual card is available in your app."
 
 #### Update PIN Function
-**Function:** `update_pin`
+**Function:** `update_pin` - coming soon
 **User:** "Change my PIN to something new"
 **Response:** "I've sent a secure PIN update link to your phone ending in **7890. The link expires in 30 minutes for your security."
 
@@ -191,12 +191,12 @@ COMPONENT CLASSES:
 
 #### Dispute Transaction Function
 <!-- HTML: <div class="chat-container"> with function-label and chat-message elements -->
-**Function:** `dispute_transaction`
+**Function:** `dispute_transaction` - coming soon
 **User:** "I didn't make that $89 charge"
 **Response:** "I've filed a dispute for the $89 charge. You'll receive a provisional credit within 2 business days while we investigate. We'll email you updates on the dispute status."
 
 #### Get Statement Function
-**Function:** `get_statement`
+**Function:** `get_statement` - coming soon
 **User:** "I need my January statement"
 **Response:** "📄 I've downloaded your January 2025 statement. It shows a starting balance of $1,245.67 and ending balance of $2,847.33."
 

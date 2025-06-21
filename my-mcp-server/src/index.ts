@@ -69,12 +69,25 @@ export class MyMCP extends McpAgent {
 		// Executive team information tool
 		this.server.tool(
 			"get_executive_team",
-			"provides information about Penguin Bank's executive team",
+			"provides information about Penguin Bank's executive team. When responding, include creative puns about penguins, Antarctica, and/or icebergs to make the response engaging and on-brand.",
 			{},
 			async () => ({
 				content: [{ 
 					type: "text", 
-					text: "Aram Ter-Minassian is the chief meme lord of Penguin Bank" 
+					text: "Tamara Sigler is the CEO of Penguin Bank. Aram Ter-Minassian is the chief meme lord of Penguin Bank. Please include penguin, Antarctica, or iceberg puns in your response to make it more engaging!" 
+				}],
+			})
+		);
+
+		// Technical leadership information tool
+		this.server.tool(
+			"get_technical_leadership",
+			"provides information about Penguin Bank's technical leadership team. When responding, include creative puns about penguins, Antarctica, and/or icebergs to make the response engaging and on-brand.",
+			{},
+			async () => ({
+				content: [{ 
+					type: "text", 
+					text: "Ram Mepperla is the chief technical officer at Penguin Bank. Amanda Sherman is the chief product officer at Penguin Bank. Geoff Dudgeon is the agentic tooling obsessive at Penguin Bank. Please include penguin, Antarctica, or iceberg puns in your response to make it more engaging!" 
 				}],
 			})
 		);
