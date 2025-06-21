@@ -78,7 +78,8 @@ carousels:
       copied_icon_id: "copied-icon"
     slides:
       - title: "Cloudflare Playground"
-        icon: "globe"
+        image: "/images/carousel/cloudflare-image.png"
+        alt: "Cloudflare Workers playground interface"
         bullets:
           - "Try Penguin Bank instantly in your browser"
           - "No setup or installation required"
