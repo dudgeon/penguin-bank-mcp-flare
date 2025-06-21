@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penguin Bank</title>
+    <title>Penguin Bank - AI-Powered Banking</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -14,18 +14,6 @@
     <link rel="apple-touch-icon" sizes="120x120" href="/images/penguin_icon_120x120.png">
     <link rel="manifest" href="/manifest.json">
     
-    <style>
-        * {
-            margin: 0;<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penguin Bank - AI-Powered Banking</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * {
             margin: 0;
@@ -47,7 +35,7 @@
         }
         
         .penguin-gradient {
-            background: linear-gradient(135deg, #86efac 0%, #22c55e 100%);
+            background: linear-gradient(135deg, #DFF4F3 0%, #BEE5E4 100%);
         }
         
         .section-padding {
@@ -57,6 +45,53 @@
         .container {
             max-width: 1024px;
             margin: 0 auto;
+        }
+        
+        .hero-tagline {
+            font-size: 1.75rem;
+            font-style: italic;
+            font-weight: 300;
+            color: #4b5563;
+            line-height: 1.5;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .hero-logo {
+            text-align: center;
+        }
+        
+        .hero-text {
+            text-align: center;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-content {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 3rem;
+            }
+            
+            .hero-logo {
+                flex-shrink: 0;
+            }
+            
+            .hero-text {
+                text-align: left;
+            }
+            
+            .hero-tagline {
+                font-size: 2rem;
+                text-align: left;
+            }
         }
         
         .carousel-container {
@@ -214,271 +249,112 @@
         }
         
         .dot.active {
-            background: var(--penguin-dark);
-            width: 24px;
-            border-radius: 4px;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: all 0.2s ease;
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .code-style {
-            font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
-            background: #f3f4f6;
-            padding: 0.125rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.875rem;
-            color: var(--penguin-dark);
-            font-weight: 500;
-        }
-        
-        .chat-container {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-        
-        .chat-message {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            align-items: flex-start;
-        }
-        
-        .chat-message.user {
-            justify-content: flex-end;
-        }
-        
-        .chat-message.assistant {
-            justify-content: flex-start;
-        }
-        
-        .chat-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 16px;
-        }
-        
-        .user .chat-avatar {
-            background: #e5e7eb;
-            order: 2;
-        }
-        
-        .assistant .chat-avatar {
             background: var(--penguin-primary);
         }
         
-        .chat-bubble {
-            padding: 0.75rem 1rem;
-            border-radius: 18px;
-            max-width: 80%;
-            word-wrap: break-word;
-        }
-        
-        .user .chat-bubble {
-            background: #3b82f6;
-            color: white;
-        }
-        
-        .assistant .chat-bubble {
-            background: #f3f4f6;
-            color: #1a1a1a;
-        }
-        
-        .function-label {
-            font-size: 0.75rem;
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             color: #6b7280;
-            margin-bottom: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #111827;
+            font-weight: 700;
+        }
+        
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        .bg-light {
+            background: #f9fafb;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+
+        
+        /* Footer Styles */
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 3rem 1rem 2rem;
             text-align: center;
         }
         
-        .btn-primary {
-            background: var(--penguin-primary);
-            color: white;
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.0625rem;
-            letter-spacing: -0.01em;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: inline-block;
+        .footer-content {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
             text-decoration: none;
+            transition: color 0.2s;
         }
         
-        .btn-primary:hover {
-            background: var(--penguin-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        .footer-links a:hover {
+            color: white;
         }
         
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-        
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background: #374151;
-            transition: all 0.3s;
-        }
-        
-                    @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hamburger {
-                display: flex;
-            }
-            
-            .carousel-nav {
-                opacity: 1;
-            }
-            
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
             .section-padding {
                 padding: 3rem 1rem;
             }
             
-            h1 {
-                font-size: 3rem !important;
+            .carousel-slide {
+                padding: 2rem 1rem;
             }
             
-            h2 {
-                font-size: 2.25rem !important;
+            .carousel-card {
+                gap: 1.5rem;
             }
             
-            h3 {
-                font-size: 1.5rem !important;
+            .carousel-content h3 {
+                font-size: 1.5rem;
             }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { 
-                opacity: 0; 
-                transform: translateY(20px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        h4 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .text-muted {
-            color: #6b7280;
-        }
-
-        .bg-light {
-            background-color: #f9fafb;
-        }
-
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.2s;
-        }
-
-        input[type="text"]:focus, textarea:focus {
-            outline: none;
-            border-color: var(--penguin-primary);
-            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
         }
     </style>
 </head>
+
 <body>
-    <!-- Mobile Navigation -->
-    <nav class="mobile-menu">
-        <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem;">
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <div style="width: 32px; height: 32px; background: var(--penguin-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                    <span style="font-size: 20px;">🐧</span>
-                </div>
-                <span style="font-weight: 600; font-size: 1.125rem;">Penguin Bank</span>
-            </div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        <div id="mobile-menu" style="display: none; border-top: 1px solid #e5e7eb;">
-            <a href="#intro" style="display: block; padding: 1rem 1.5rem; color: #374151; text-decoration: none; border-bottom: 1px solid #f3f4f6;">What are MCPs?</a>
-            <a href="#features" style="display: block; padding: 1rem 1.5rem; color: #374151; text-decoration: none; border-bottom: 1px solid #f3f4f6;">Banking Features</a>
-            <a href="#connect" style="display: block; padding: 1rem 1.5rem; color: #374151; text-decoration: none; border-bottom: 1px solid #f3f4f6;">Get Started</a>
-            <a href="#functions" style="display: block; padding: 1rem 1.5rem; color: #374151; text-decoration: none; border-bottom: 1px solid #f3f4f6;">Available Functions</a>
-            <a href="#feedback" style="display: block; padding: 1rem 1.5rem; color: #374151; text-decoration: none;">Share Ideas</a>
-        </div>
-    </nav>
+
 
     <!-- Hero Section -->
-    <header class="penguin-gradient section-padding" style="padding-top: 6rem; padding-bottom: 5rem;">
-        <div class="container fade-in" style="text-align: center;">
-            <div style="margin-bottom: 2rem;">
-                <img src="penguin-bank-logo.png" alt="Penguin Bank" style="width: 200px; height: auto; filter: drop-shadow(0 4px 24px rgba(0,0,0,0.1));">
+    <header class="penguin-gradient section-padding">
+        <div class="container fade-in">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="/images/penguin_icon_256x256.png" alt="Penguin Bank" style="width: 200px; height: auto; filter: drop-shadow(0 4px 24px rgba(0,0,0,0.1));">
+                </div>
+                <div class="hero-text">
+                    <p class="hero-tagline">Your AI assistant can now manage your credit card</p>
+                </div>
             </div>
-            <p class="hero-tagline">Your AI assistant can now manage your credit card</p>
         </div>
     </header>
 
@@ -670,11 +546,28 @@
                                 </svg>
                             </div>
                             <div class="carousel-content">
-                                <h3>Claude Desktop</h3>
+                                <h3>Connect to Claude Desktop</h3>
                                 <ul class="carousel-bullets">
-                                    <li>Add to Claude Pro desktop app</li>
-                                    <li>Access via Settings → Developer → Edit Config</li>
-                                    <li>Use Penguin Bank in your daily workflow</li>
+                                    <li>Add Penguin Bank to your Claude config</li>
+                                    <li>Enjoy seamless banking in your workflow</li>
+                                    <li>Works with all Claude Desktop features</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="carousel-image">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M14.5 4h-5L7 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2v-9a2 2 0 00-2-2h-4m-6 0V9a3 3 0 116 0v2m-6 0h6"/>
+                                </svg>
+                            </div>
+                            <div class="carousel-content">
+                                <h3>Other MCP Clients</h3>
+                                <ul class="carousel-bullets">
+                                    <li>Works with any MCP-compatible client</li>
+                                    <li>Future-proof your banking integration</li>
+                                    <li>Part of the growing MCP ecosystem</li>
                                 </ul>
                             </div>
                         </div>
@@ -684,444 +577,213 @@
                 <div class="carousel-nav next" onclick="navigateCarousel('connect', 1)">›</div>
                 <div class="carousel-dots" id="connect-dots"></div>
             </div>
-
-            <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-                <p class="text-muted" style="margin-bottom: 1rem; font-weight: 500; font-size: 0.9375rem; letter-spacing: 0.02em;">Copy this URL to connect:</p>
-                <div style="display: flex; gap: 1rem; align-items: center;">
-                    <input type="text" value="https://mcp.penguinbank.cloud/" readonly style="flex: 1; font-family: monospace; background: #f9fafb;">
-                    <button onclick="copyToClipboard()" class="btn-primary">Copy</button>
-                </div>
-                <div id="copy-feedback" style="color: var(--penguin-primary); margin-top: 0.5rem; opacity: 0; transition: opacity 0.3s;">✓ Copied!</div>
-            </div>
         </div>
     </section>
 
-    <!-- Available Functions Section -->
+    <!-- Section 4: Available Functions -->
     <section id="functions" class="section-padding bg-light">
         <div class="container">
-            <div style="background: white; border-radius: 12px; padding: 3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-                <h3 style="font-size: 2.5rem; margin-bottom: 2rem; text-align: center; font-weight: 700;">What you can do with Penguin Bank MCP</h3>
-                
-                <div class="feature-card">
-                    <h4>Account Information</h4>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">get_balance</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">What's my current balance?</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">Your balance is $2,847.33 with $5,152.67 available credit</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">get_credit_limit</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">What's my credit limit?</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">Your credit limit is $8,000</div>
+            <div class="section-label" style="text-align: center;">Available Functions</div>
+            <h2 style="text-align: center;">What you can do</h2>
+            
+            <div class="carousel-container" style="background: white;">
+                <div class="carousel-track" id="functions-track">
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="carousel-image">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                                </svg>
+                            </div>
+                            <div class="carousel-content">
+                                <h3>Balance & Account Info</h3>
+                                <ul class="carousel-bullets">
+                                    <li>Check current balance and available credit</li>
+                                    <li>View account status and limits</li>
+                                    <li>Get payment due dates and amounts</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="feature-card">
-                    <h4>Transaction History</h4>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">get_recent_transactions</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">Show me my last 5 purchases</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">Here are your last 5 transactions:<br>
-                            • Whole Foods - $67.43 (Today)<br>
-                            • Netflix - $15.99 (Yesterday)<br>
-                            • Shell Gas Station - $45.20 (Mar 2)<br>
-                            • Amazon - $129.99 (Mar 1)<br>
-                            • Starbucks - $6.75 (Mar 1)</div>
+                    <div class="carousel-slide">
+                        <div class="carousel-card image-right">
+                            <div class="carousel-image">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M3 3v18h18"/>
+                                    <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                                </svg>
+                            </div>
+                            <div class="carousel-content">
+                                <h3>Transaction History</h3>
+                                <ul class="carousel-bullets">
+                                    <li>Search transactions by date, amount, or merchant</li>
+                                    <li>Categorize spending automatically</li>
+                                    <li>Export transaction data for analysis</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">search_transactions</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">How much did I spend at Whole Foods this month?</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">You spent $347.82 at Whole Foods across 8 transactions this month</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">get_pending_charges</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">Any pending charges?</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">Yes, $42.99 from Netflix is still processing and should post within 1-2 business days</div>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="carousel-image">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M9 11H5a2 2 0 00-2 2v7a2 2 0 002 2h14a2 2 0 002-2v-7a2 2 0 00-2-2h-4m-6 0V9a3 3 0 116 0v2m-6 0h6"/>
+                                </svg>
+                            </div>
+                            <div class="carousel-content">
+                                <h3>Security & Controls</h3>
+                                <ul class="carousel-bullets">
+                                    <li>Freeze or unfreeze cards instantly</li>
+                                    <li>Set spending limits and controls</li>
+                                    <li>Report suspicious activity quickly</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="feature-card">
-                    <h4>Payments & Transfers</h4>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">make_payment</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">Pay $200 toward my balance</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">✓ Payment of $200 scheduled for today. Your new balance will be $2,647.33</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">schedule_payment</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">Set up autopay for minimum due on the 15th</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">✓ Autopay configured! Your minimum payment will be automatically paid on the 15th of each month</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">get_payment_due_date</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">When is my payment due?</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">Your next payment of $35 (minimum due) is due on March 15th - that's in 12 days</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <h4>Card Management</h4>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">freeze_card</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">I can't find my card</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">🔒 I've frozen your card for you. No charges can be made until you unfreeze it. Just let me know when you find it!</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">report_lost_card</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">My card was stolen</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">I've immediately cancelled your card and ordered a replacement. Your new card will arrive in 3-5 business days at your registered address. A temporary virtual card is available in your app.</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">update_pin</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">Change my PIN to something new</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">I've sent a secure PIN update link to your phone ending in **7890. The link expires in 30 minutes for your security.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <h4>Disputes & Support</h4>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">dispute_transaction</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">I didn't make that $89 charge</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">I've filed a dispute for the $89 charge. You'll receive a provisional credit within 2 business days while we investigate. We'll email you updates on the dispute status.</div>
-                        </div>
-                    </div>
-                    <div class="chat-container">
-                        <div class="function-label">Using <span class="code-style">get_statement</span></div>
-                        <div class="chat-message user">
-                            <div class="chat-avatar">👤</div>
-                            <div class="chat-bubble">I need my January statement</div>
-                        </div>
-                        <div class="chat-message assistant">
-                            <div class="chat-avatar">🤖</div>
-                            <div class="chat-bubble">📄 I've downloaded your January 2025 statement. It shows a starting balance of $1,245.67 and ending balance of $2,847.33.</div>
-                        </div>
-                    </div>
-                </div>
+                <div class="carousel-nav prev" onclick="navigateCarousel('functions', -1)">‹</div>
+                <div class="carousel-nav next" onclick="navigateCarousel('functions', 1)">›</div>
+                <div class="carousel-dots" id="functions-dots"></div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Feedback -->
+    <!-- Section 5: Feedback -->
     <section id="feedback" class="section-padding">
-        <div class="container" style="max-width: 600px;">
+        <div class="container">
             <div class="section-label" style="text-align: center;">Share Ideas</div>
-            <h2 style="text-align: center;">What would you build?</h2>
-            <div style="background: white; border-radius: 12px; padding: 3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-                <form id="feedback-form">
-                    <label for="idea" style="display: block; font-weight: 500; margin-bottom: 0.5rem;">
-                        What would you use your AI assistant for if it could do anything?
-                    </label>
-                    <textarea 
-                        id="idea" 
-                        name="idea" 
-                        rows="4" 
-                        placeholder="I'd love to ask my AI to..."
-                        required
-                        style="margin-bottom: 1rem;"
-                    ></textarea>
-                    <button type="submit" class="btn-primary" style="width: 100%;">Share Your Idea</button>
-                </form>
-                <div id="submit-feedback" style="text-align: center; color: var(--penguin-primary); margin-top: 1rem; opacity: 0; transition: opacity 0.3s;">
-                    Thanks for sharing! We'll review your idea soon.
+            <h2 style="text-align: center;">Help us build the future</h2>
+            
+            <div class="carousel-container">
+                <div class="carousel-track" id="feedback-track">
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="carousel-image">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+                                </svg>
+                            </div>
+                            <div class="carousel-content">
+                                <h3>What features do you want?</h3>
+                                <ul class="carousel-bullets">
+                                    <li>Investment account integration</li>
+                                    <li>Budgeting and savings goals</li>
+                                    <li>Multi-bank account management</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="carousel-card image-right">
+                            <div class="carousel-image">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                                    <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                                    <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
+                                    <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
+                                </svg>
+                            </div>
+                            <div class="carousel-content">
+                                <h3>How can we improve?</h3>
+                                <ul class="carousel-bullets">
+                                    <li>Better natural language understanding</li>
+                                    <li>More detailed transaction insights</li>
+                                    <li>Faster response times and reliability</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="carousel-image">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                            <div class="carousel-content">
+                                <h3>Share your experience</h3>
+                                <ul class="carousel-bullets">
+                                    <li>Tell us what works well for you</li>
+                                    <li>Report any issues or bugs you find</li>
+                                    <li>Suggest new use cases and workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="carousel-nav prev" onclick="navigateCarousel('feedback', -1)">‹</div>
+                <div class="carousel-nav next" onclick="navigateCarousel('feedback', 1)">›</div>
+                <div class="carousel-dots" id="feedback-dots"></div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer style="padding: 2rem 1rem; border-top: 1px solid #e5e7eb;">
-        <div class="container" style="text-align: center;">
-            <p class="text-muted">Created by <a href="mailto:dudgeon@gmail.com" style="color: var(--penguin-primary); text-decoration: none;">Geoff Dudgeon</a></p>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#intro">About MCPs</a>
+                <a href="#features">Features</a>
+                <a href="#connect">Get Started</a>
+                <a href="#functions">Functions</a>
+                <a href="#feedback">Feedback</a>
+            </div>
+            <p>&copy; 2024 Penguin Bank. A demonstration MCP server for AI-powered banking.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-        }
-
-        // Carousel state
-        const carousels = {
-            intro: { current: 0, slides: 3 },
-            features: { current: 0, slides: 3 },
-            connect: { current: 0, slides: 2 }
-        };
-
+        // Carousel functionality
+        const carousels = ['intro', 'features', 'connect', 'functions', 'feedback'];
+        const carouselStates = {};
+        
         // Initialize carousels
-        function initCarousels() {
-            Object.keys(carousels).forEach(id => {
-                const dotsContainer = document.getElementById(`${id}-dots`);
-                for (let i = 0; i < carousels[id].slides; i++) {
-                    const dot = document.createElement('div');
-                    dot.className = 'dot' + (i === 0 ? ' active' : '');
-                    dot.onclick = () => goToSlide(id, i);
-                    dotsContainer.appendChild(dot);
-                }
-            });
-        }
-
-        // Navigate carousel
-        function navigateCarousel(id, direction) {
-            const carousel = carousels[id];
-            let newIndex = carousel.current + direction;
+        carousels.forEach(name => {
+            carouselStates[name] = { currentSlide: 0, totalSlides: 0 };
+            initCarousel(name);
+        });
+        
+        function initCarousel(name) {
+            const track = document.getElementById(`${name}-track`);
+            const slides = track.children;
+            const dotsContainer = document.getElementById(`${name}-dots`);
             
-            if (newIndex < 0) newIndex = carousel.slides - 1;
-            if (newIndex >= carousel.slides) newIndex = 0;
+            carouselStates[name].totalSlides = slides.length;
             
-            goToSlide(id, newIndex);
+            // Create dots
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < slides.length; i++) {
+                const dot = document.createElement('div');
+                dot.className = `dot ${i === 0 ? 'active' : ''}`;
+                dot.onclick = () => goToSlide(name, i);
+                dotsContainer.appendChild(dot);
+            }
         }
-
-        // Go to specific slide
-        function goToSlide(id, index) {
-            carousels[id].current = index;
-            const track = document.getElementById(`${id}-track`);
-            track.style.transform = `translateX(-${index * 100}%)`;
+        
+        function navigateCarousel(name, direction) {
+            const state = carouselStates[name];
+            const newSlide = state.currentSlide + direction;
+            
+            if (newSlide >= 0 && newSlide < state.totalSlides) {
+                goToSlide(name, newSlide);
+            }
+        }
+        
+        function goToSlide(name, slideIndex) {
+            const track = document.getElementById(`${name}-track`);
+            const dots = document.getElementById(`${name}-dots`).children;
+            
+            carouselStates[name].currentSlide = slideIndex;
+            track.style.transform = `translateX(-${slideIndex * 100}%)`;
             
             // Update dots
-            const dots = document.querySelectorAll(`#${id}-dots .dot`);
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
+            Array.from(dots).forEach((dot, index) => {
+                dot.className = `dot ${index === slideIndex ? 'active' : ''}`;
             });
         }
-
-        // Touch support for carousels
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        document.querySelectorAll('.carousel-track').forEach(track => {
-            track.addEventListener('touchstart', e => {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-
-            track.addEventListener('touchend', e => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe(track.id.replace('-track', ''));
-            });
-        });
-
-        function handleSwipe(carouselId) {
-            const diff = touchStartX - touchEndX;
-            if (Math.abs(diff) > 50) {
-                navigateCarousel(carouselId, diff > 0 ? 1 : -1);
-            }
-        }
-
-        // Copy to clipboard
-        function copyToClipboard() {
-            const input = document.querySelector('input[type="text"]');
-            input.select();
-            document.execCommand('copy');
-            
-            const feedback = document.getElementById('copy-feedback');
-            feedback.style.opacity = '1';
-            setTimeout(() => {
-                feedback.style.opacity = '0';
-            }, 2000);
-        }
-
-        // Form submission
-        document.getElementById('feedback-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const feedback = document.getElementById('submit-feedback');
-            feedback.style.opacity = '1';
-            
-            // Reset form
-            e.target.reset();
-            
-            setTimeout(() => {
-                feedback.style.opacity = '0';
-            }, 5000);
-        });
-
-        // Initialize
-        initCarousels();
-
-        // Smooth scroll for mobile menu
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                document.getElementById('mobile-menu').style.display = 'none';
-            });
-        });
+        
+        
     </script>
-</body>
-</html>
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-        
-        .container {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: 2rem;
-        }
-        
-        .penguin-icon {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 2rem;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .penguin-icon img {
-            width: 80px;
-            height: 80px;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-        
-        .mcp-link {
-            display: inline-block;
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .mcp-link:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-        }
-        
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            p {
-                font-size: 1.1rem;
-            }
-            
-            .container {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="penguin-icon">
-            <img src="/images/penguin_icon_80x80.png" alt="Penguin Bank Logo">
-        </div>
-        <h1>Hello World!</h1>
-        <p>Welcome to Penguin Bank - where your financial future waddles forward with confidence.</p>
-        <a href="https://mcp.penguinbank.cloud" class="mcp-link">🔗 MCP Server</a>
-    </div>
 </body>
 </html> 
