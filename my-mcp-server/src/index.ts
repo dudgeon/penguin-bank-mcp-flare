@@ -10,59 +10,62 @@ export class MyMCP extends McpAgent {
 	});
 
 	async init() {
-		// Simple addition tool
+		// Pay bill tool
 		this.server.tool(
-			"add",
-			{ a: z.number(), b: z.number() },
-			async ({ a, b }) => ({
-				content: [{ type: "text", text: String(a + b) }],
+			"pay-my-bill",
+			"Pay a credit card bill or make a payment towards the account balance",
+			{ amount: z.number().positive().describe("Payment amount in dollars") },
+			async ({ amount }) => ({
+				content: [{ 
+					type: "text", 
+					text: `Payment of $${amount} has been scheduled. This is a demo - no actual payment was processed.` 
+				}],
 			})
 		);
 
-		// Calculator tool with multiple operations
+		// Check balance tool
 		this.server.tool(
-			"calculate",
-			{
-				operation: z.enum(["add", "subtract", "multiply", "divide"]),
-				a: z.number(),
-				b: z.number(),
-			},
-			async ({ operation, a, b }) => {
-				let result: number;
-				switch (operation) {
-					case "add":
-						result = a + b;
-						break;
-					case "subtract":
-						result = a - b;
-						break;
-					case "multiply":
-						result = a * b;
-						break;
-					case "divide":
-						if (b === 0)
-							return {
-								content: [
-									{
-										type: "text",
-										text: "Error: Cannot divide by zero",
-									},
-								],
-							};
-						result = a / b;
-						break;
-				}
-				return { content: [{ type: "text", text: String(result) }] };
-			}
-		);
-
-		// Knock-knock joke tool
-		this.server.tool(
-			"knock-knock",
-			"tells a special knock-knock joke",
+			"check-my-balance",
+			"Check current account balance and available credit",
 			{},
 			async () => ({
-				content: [{ type: "text", text: "snow man it's snowing outside" }],
+				content: [{ 
+					type: "text", 
+					text: "Current balance: $2,847.33 | Available credit: $5,152.67 | Credit limit: $8,000.00 (Demo data)" 
+				}],
+			})
+		);
+
+		// Check recent transactions tool
+		this.server.tool(
+			"check-recent-transactions",
+			"View recent credit card transactions and spending history",
+			{ 
+				limit: z.number().int().min(1).max(50).default(5).describe("Number of recent transactions to retrieve") 
+			},
+			async ({ limit }) => ({
+				content: [{ 
+					type: "text", 
+					text: `Last ${limit} transactions (Demo data):
+• Whole Foods - $67.43 (Today)
+• Netflix - $15.99 (Yesterday) 
+• Shell Gas Station - $45.20 (Mar 2)
+• Amazon - $129.99 (Mar 1)
+• Starbucks - $6.75 (Mar 1)` 
+				}],
+			})
+		);
+
+		// Lock card tool
+		this.server.tool(
+			"lock-my-card",
+			"Immediately freeze/lock your credit card to prevent unauthorized use",
+			{},
+			async () => ({
+				content: [{ 
+					type: "text", 
+					text: "🔒 Your card has been locked successfully. No new charges can be made until you unlock it. This is a demo - no actual card was locked." 
+				}],
 			})
 		);
 
