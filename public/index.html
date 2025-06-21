@@ -381,6 +381,24 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        .hero-tagline-cycling {
+            transition: opacity 1s ease-in-out;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            min-height: 5.25rem; /* 3 lines at 1.75rem font-size */
+            display: flex;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-tagline-cycling {
+                width: 600px;
+                margin: 0;
+                min-height: 4rem; /* 2 lines at 2rem font-size */
+            }
+        }
+        
 
         
         /* Footer Styles */
@@ -446,7 +464,7 @@
                     <img src="/images/penguin_icon_256x256.png" alt="Penguin Bank" style="width: 200px; height: auto; filter: drop-shadow(0 4px 24px rgba(0,0,0,0.1));">
                 </div>
                 <div class="hero-text">
-                    <p class="hero-tagline">Hey, Claude - please pay my credit card bill.</p>
+                    <p class="hero-tagline hero-tagline-cycling" id="hero-tagline">Hey, Claude - please pay my credit card bill.</p>
                 </div>
             </div>
         </div>
@@ -986,6 +1004,30 @@
             });
         }
         
+        // Hero tagline cycling
+        const taglines = [
+            "Hey, Claude - please pay my credit card bill.",
+            "Hey, ChatGPT - please lock my card.",
+            "Hey, Gemini - how much did I spend on groceries this month?"
+        ];
+        
+        let currentTaglineIndex = 0;
+        const taglineElement = document.getElementById('hero-tagline');
+        
+                 function cycleTagline() {
+             taglineElement.style.opacity = '0';
+             
+             setTimeout(() => {
+                 currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
+                 taglineElement.textContent = taglines[currentTaglineIndex];
+                 taglineElement.style.opacity = '1';
+             }, 500);
+         }
+        
+        // Start cycling after initial load
+        setTimeout(() => {
+            setInterval(cycleTagline, 3000);
+        }, 2000);
         
     </script>
 </body>
