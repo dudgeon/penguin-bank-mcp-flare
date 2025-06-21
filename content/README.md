@@ -197,7 +197,11 @@ carousels:
     background_class: "bg-gray-50" # optional
     slides:
       - title: "Slide Title"
-        icon: "icon-name"
+        icon: "icon-name"  # Use either icon OR image
+        bullets: ["Point 1", "Point 2", "Point 3"]
+      - title: "Slide with Custom Image"
+        image: "/images/carousel/my-image.jpg"  # Custom image path
+        alt: "Descriptive alt text for accessibility"  # Required for images
         bullets: ["Point 1", "Point 2", "Point 3"]
 
 functions:
@@ -221,8 +225,11 @@ footer:
 ---
 ```
 
-### Icon System
+### Visual Assets System
 
+The carousel system supports both **SVG icons** and **custom images**:
+
+#### SVG Icons (Built-in)
 Available icons (mapped in `templates/partials/icon.hbs`):
 - `shield-check` - Security/protection
 - `lock` - Privacy/security
@@ -235,6 +242,191 @@ Available icons (mapped in `templates/partials/icon.hbs`):
 - `message-circle` - Communication
 - `settings` - Configuration
 - `star` - Rating/quality
+
+#### Custom Images
+For custom images in carousels, use the `image` property instead of `icon`:
+
+```yaml
+slides:
+  - title: "Slide with custom image"
+    image: "/images/my-carousel-image.jpg"
+    alt: "Descriptive alt text for accessibility"
+    bullets: ["Point 1", "Point 2", "Point 3"]
+  - title: "Slide with SVG icon"
+    icon: "shield-check"
+    bullets: ["Point 1", "Point 2", "Point 3"]
+```
+
+#### Image Requirements & Best Practices
+
+**📁 File Location:**
+- Place all carousel images in: `public/images/carousel/`
+- This keeps them organized and separate from favicon/icon files
+
+**📏 Image Specifications:**
+- **Dimensions**: 400×320px (1.25:1 aspect ratio) recommended
+- **File Size**: Keep under 200KB for optimal loading
+- **Formats**: JPG, PNG, WebP, or SVG
+- **Resolution**: 2x retina support (800×640px actual size)
+
+**🎨 Visual Guidelines:**
+- Use consistent style across all carousel images
+- Maintain good contrast for readability
+- Consider dark mode compatibility
+- Keep visual complexity moderate (images are 264px tall on mobile)
+
+**♿ Accessibility:**
+- Always include `alt` text for images
+- Use descriptive, meaningful alt text
+- Keep alt text under 125 characters
+- Don't start with "Image of" or "Picture of"
+
+#### Image File Naming Convention
+
+Use descriptive, kebab-case naming:
+```
+✅ Good Examples:
+- banking-security-shield.jpg
+- mobile-payment-process.png
+- ai-assistant-chat.webp
+- credit-card-management.svg
+
+❌ Avoid:
+- IMG_1234.jpg
+- image1.png
+- photo.jpeg
+- untitled.gif
+```
+
+#### Adding Images to Carousels
+
+**Step 1: Add Image File**
+```bash
+# Create carousel images directory
+mkdir -p public/images/carousel
+
+# Add your image
+cp ~/Downloads/my-image.jpg public/images/carousel/banking-security-shield.jpg
+```
+
+**Step 2: Update Content**
+```yaml
+# In content/index.md
+carousels:
+  intro:
+    slides:
+      - title: "Your banking data is secure"
+        image: "/images/carousel/banking-security-shield.jpg"
+        alt: "Shield with checkmark representing banking security"
+        bullets:
+          - "End-to-end encryption for all transactions"
+          - "Multi-factor authentication required"
+          - "Real-time fraud monitoring active"
+```
+
+**Step 3: Test Locally**
+```bash
+npm run dev
+# Check that image loads correctly in browser
+```
+
+**Step 4: Commit and Deploy**
+```bash
+git add public/images/carousel/banking-security-shield.jpg
+git add content/index.md
+git commit -m "feat: add banking security image to intro carousel"
+git push origin main
+```
+
+#### Image Optimization Tips
+
+**Before Adding Images:**
+1. **Compress images** using tools like:
+   - [TinyPNG](https://tinypng.com/) for PNG/JPG
+   - [Squoosh](https://squoosh.app/) for all formats
+   - [ImageOptim](https://imageoptim.com/) (Mac app)
+
+2. **Generate multiple formats** if needed:
+   ```bash
+   # Convert to WebP for better compression
+   cwebp -q 80 image.jpg -o image.webp
+   ```
+
+3. **Create retina versions** for sharp display:
+   - Standard: 400×320px (`image.jpg`)
+   - Retina: 800×640px (`image@2x.jpg`)
+
+#### Fallback System
+
+The template system automatically handles fallbacks:
+1. **Image specified**: Shows custom image
+2. **Icon specified**: Shows SVG icon  
+3. **Neither specified**: Shows default clock icon
+4. **Image fails to load**: Browser shows alt text
+
+#### Performance Considerations
+
+**Loading Strategy:**
+- Images are loaded immediately (no lazy loading currently)
+- Consider image size for mobile users
+- WebP format provides ~30% smaller files than JPG
+
+**CDN Benefits:**
+- Cloudflare Pages automatically optimizes images
+- Global CDN distribution for fast loading
+- Automatic compression and format conversion
+
+#### Troubleshooting Images
+
+**Image not showing:**
+1. Check file path: `/images/carousel/filename.jpg`
+2. Verify file exists in `public/images/carousel/`
+3. Check browser console for 404 errors
+4. Ensure proper YAML syntax in `content/index.md`
+
+**Image too large/small:**
+1. The container is 264px tall on mobile, 320px on desktop
+2. Images are automatically scaled to fit
+3. Use CSS `object-fit: cover` behavior (maintains aspect ratio)
+
+**Accessibility issues:**
+1. Always include `alt` attribute
+2. Test with screen readers
+3. Ensure sufficient color contrast
+4. Don't rely solely on images to convey information
+
+#### SSG Robustness & Error Handling
+
+**✅ The SSG system is designed to handle image updates safely:**
+
+1. **Graceful Fallbacks**: If an image fails to load, the system falls back to:
+   - Alt text display (browser default)
+   - No broken builds or deployment failures
+   - Carousel continues to function normally
+
+2. **Build Process Safety**: 
+   - Missing images don't break the SSG build
+   - Invalid image paths are preserved (browser handles 404s)
+   - Template compilation continues even with missing assets
+
+3. **Deployment Safety**:
+   - Images are static assets copied during deployment
+   - No dynamic image processing that could fail
+   - CDN handles missing images gracefully
+
+4. **Mixed Content Support**:
+   - Carousels can mix icons and images freely
+   - Each slide can independently use `icon` or `image`
+   - No conflicts between different visual asset types
+
+**🔧 Safe Update Process:**
+1. Add images to `public/images/carousel/` first
+2. Test locally with `npm run dev`
+3. Update `content/index.md` with image references
+4. Commit both files together
+5. CI/CD automatically includes images in deployment
+
+This approach ensures that **image additions/edits will never break the SSG or deployment process**.
 
 ## 🤝 Contributing
 
