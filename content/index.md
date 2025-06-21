@@ -81,6 +81,7 @@ carousels:
         image: "/images/carousel/cloudflare-image.png"
         alt: "Cloudflare Workers playground interface"
         bullets:
+          - "**[Cloudflare AI Playground](https://playground.ai.cloudflare.com/)** supports any remote MCP server today."
           - "Try Penguin Bank instantly in your browser"
           - "No setup or installation required"
           - "Perfect for testing before connecting"

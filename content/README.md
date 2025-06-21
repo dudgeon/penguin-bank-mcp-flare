@@ -54,6 +54,7 @@ package.json           # Dependencies and scripts
 - **[gray-matter](https://github.com/jonschlinkert/gray-matter)** `^4.0.3` - YAML frontmatter parsing
 - **[handlebars](https://handlebarsjs.com/)** `^4.7.8` - Template engine
 - **[fs-extra](https://github.com/jprichardson/node-fs-extra)** `^11.2.0` - Enhanced filesystem operations
+- **[marked](https://marked.js.org/)** `^4.3.0` - Markdown parsing and rendering
 
 ### Development Tools
 - **[serve](https://github.com/vercel/serve)** `^14.2.4` - Local development server
@@ -427,6 +428,85 @@ The template system automatically handles fallbacks:
 5. CI/CD automatically includes images in deployment
 
 This approach ensures that **image additions/edits will never break the SSG or deployment process**.
+
+## 📝 Markdown Support
+
+### ✅ **Automatic Markdown Parsing**
+
+The SSG **automatically parses markdown formatting** in:
+- **Carousel bullet points** - Links, bold, italic, code
+- **Function responses** - All markdown formatting + line breaks
+- **Any text content** - Full markdown support throughout
+
+### **Supported Markdown Features**
+
+**✅ Links**: `[Display Text](https://example.com)`
+```yaml
+bullets:
+  - "Visit the [Cloudflare Playground](https://playground.ai.cloudflare.com/) to test"
+```
+
+**✅ Bold**: `**bold text**` or `__bold text__`
+```yaml
+bullets:
+  - "**Important**: This feature is required"
+```
+
+**✅ Italic**: `*italic text*` or `_italic text_`
+```yaml
+bullets:
+  - "Use *italic* for emphasis"
+```
+
+**✅ Code**: `` `inline code` ``
+```yaml
+bullets:
+  - "Run `npm install` to get started"
+```
+
+**✅ Combined**: `**[Bold Link](https://example.com)**`
+```yaml
+bullets:
+  - "Try **[Cloudflare AI Playground](https://playground.ai.cloudflare.com/)** for free"
+```
+
+### **Live Example**
+
+The Cloudflare Playground slide demonstrates markdown in action:
+```yaml
+bullets:
+  - "**[Cloudflare AI Playground](https://playground.ai.cloudflare.com/)** supports any remote MCP server today."
+```
+
+This renders as: **[Cloudflare AI Playground](https://playground.ai.cloudflare.com/)** supports any remote MCP server today.
+
+### **Technical Implementation**
+
+**Handlebars Helpers:**
+- `{{{markdownInline text}}}` - Inline markdown (no `<p>` tags)
+- `{{{markdown text}}}` - Full markdown with block elements
+- `{{{formatResponse text}}}` - Markdown + line break handling
+
+**Template Usage:**
+```handlebars
+{{#each this.bullets}}
+<li class="flex items-start">{{{markdownInline this}}}</li>
+{{/each}}
+```
+
+### **Best Practices**
+
+**✅ Do:**
+- Use markdown for links, emphasis, and formatting
+- Test locally with `npm run dev` after adding markdown
+- Keep markdown simple and readable in YAML
+- Use quotes around YAML values with markdown
+
+**❌ Avoid:**
+- Complex markdown (tables, headers) in bullet points
+- Nested quotes in YAML without proper escaping
+- Markdown that breaks responsive design
+- Overly complex formatting that hurts readability
 
 ## 🤝 Contributing
 
