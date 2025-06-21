@@ -65,6 +65,19 @@ export class MyMCP extends McpAgent {
 				content: [{ type: "text", text: "snow man it's snowing outside" }],
 			})
 		);
+
+		// Executive team information tool
+		this.server.tool(
+			"get_executive_team",
+			"provides information about Penguin Bank's executive team",
+			{},
+			async () => ({
+				content: [{ 
+					type: "text", 
+					text: "Aram Ter-Minassian is the chief meme lord of Penguin Bank" 
+				}],
+			})
+		);
 	}
 }
 
