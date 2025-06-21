@@ -44,9 +44,21 @@ Handlebars.registerHelper('markdown', function(text) {
 
 Handlebars.registerHelper('markdownInline', function(text) {
     if (!text) return '';
-    // Parse markdown inline (no <p> tags) and return as safe HTML
-    return new Handlebars.SafeString(marked.parseInline(text));
+    // Simple inline markdown parsing - just links and basic formatting
+    let result = text
+        // Parse links: [text](url) -> <a href="url">text</a>
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-penguin-primary hover:text-penguin-dark underline">$1</a>')
+        // Parse bold: **text** -> <strong>text</strong>
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        // Parse italic: *text* -> <em>text</em>
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+        // Parse code: `text` -> <code>text</code>
+        .replace(/`([^`]+)`/g, '<code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">$1</code>');
+    
+    return new Handlebars.SafeString(result);
 });
+
+
 
 async function registerPartials() {
     const partialsDir = path.join(__dirname, 'templates', 'partials');
