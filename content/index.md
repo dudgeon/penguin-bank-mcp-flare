@@ -21,31 +21,25 @@ carousels:
     dots_id: "intro-dots"
     slides:
       - title: "People are using AI assistants in more ways every day"
-        image: "/images/carousel/chatgpt-web-search.png"
+        image: "/images/carousel/chatgpt-web-search.jpg"
         bullets:
           - "ChatGPT started with general knowledge."
           - "Web search made it more reliable and trustworthy."
           - "Long-term memory has enhanced personalization."
       - title: "The new frontier is performing real work in your favorite services"
         bullets:
-        image: "/images/carousel/chatgpt-app-store.png"
+        image: "/images/carousel/chatgpt-app-store.jpg"
           - "ChatGPT has tried a number of integration patterns."
           - "The industry is coalescing around 'connectors'."
           - "ChatGPT can now search your Gmail, Calendar, and Dropbox files."
           - "AI assistants are plausibly becoming the next operating system."
       - title: "A new standard has arrived that will allow assistants to integrate with any company or service: MCP"
-        image: "
+        image: "/images/carousel/farmers-market.jpg"
         bullets:
           - "Previous integrations have relied on direct partnerships between AI company and Service provider."
           - "If your app was not chosen, users could not interact with it via ChatGPT."
           - "AI assistant providers are starting to embrace the Model Context Protocol (MCP) as a way to plug _any_ service into your favorite AI assistant."
-          - "Any company (e.g. bank) can publish an MCP Server, and users of compatible AI assistants will be able to interact with it."
-      - title: "Banking where you already work"
-        icon: "credit-card"
-        bullets:
-          - "No app switching - stay in your AI assistant"
-          - "Handle all credit card tasks conversationally"
-          - "Banking that adapts to your workflow"
+          - "Any company (e.g. bank) can publish an MCP Server, and users of compatible AI assistants can use it."
 
   features:
     section_id: "features"
@@ -86,7 +80,7 @@ carousels:
       copied_icon_id: "copied-icon"
     slides:
       - title: "Cloudflare Playground"
-        image: "/images/carousel/cloudflare-image.png"
+        image: "/images/carousel/cloudflare-image.jpg"
         alt: "Cloudflare Workers playground interface"
         bullets:
           - "[Cloudflare AI Playground](https://playground.ai.cloudflare.com/) supports any remote MCP server today"
