@@ -31,7 +31,23 @@ export class MyMCP extends McpAgent {
 			async () => ({
 				content: [{ 
 					type: "text", 
-					text: "Current balance: $2,847.33 | Available credit: $5,152.67 | Credit limit: $8,000.00 (Demo data)" 
+					text: JSON.stringify({
+						checking_account: {
+							current_balance: 3247.89,
+							account_type: "checking"
+						},
+						savings_account: {
+							current_balance: 12458.32,
+							account_type: "savings"
+						},
+						credit_card: {
+							current_balance: 2847.33,
+							statement_balance: 2695.12,
+							remaining_credit_limit: 5152.67,
+							total_credit_limit: 8000.00,
+							account_type: "credit_card"
+						}
+					}, null, 2) + " (Demo data)"
 				}],
 			})
 		);
