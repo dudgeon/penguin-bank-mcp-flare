@@ -71,9 +71,10 @@ carousels:
           - "AI assistants can combine these tools to perform more complex tasks."
           - "e.g. 'Please pay my statement balance; transfer money from savings first if you need to.'"
 
+
   connect:
     section_id: "connect"
-    section_title: "Try it yourself"
+    section_title: "Try Penguin Bank MCP today"
     track_id: "connect-track"
     dots_id: "connect-dots"
     copy_url:
@@ -87,28 +88,28 @@ carousels:
         image: "/images/carousel/cloudflare-image.jpg"
         alt: "Cloudflare Workers playground interface"
         bullets:
-          - "[Cloudflare AI Playground](https://playground.ai.cloudflare.com/) supports any remote MCP server today"
-          - "Try Penguin Bank instantly in your browser"
-          - "No setup or installation required"
-          - "Perfect for testing before connecting"
+          - "[Cloudflare AI Playground](https://playground.ai.cloudflare.com/) supports any remote MCP server today."
+          - "Try Penguin Bank instantly in your browser; no account or installation required."
+          - "More flexible requirements than Claude and ChatGPT."
       - title: "Connect to Claude Desktop"
         image: "/images/carousel/claude-mcp.png"
         bullets:
-          - "Add Penguin Bank to your Claude config"
-          - "Enjoy seamless banking in your workflow"
-          - "Works with all Claude Desktop features"
+          - "Anthropic recently added MCP server support for all Pro customers."
+          - "We anticipate this feature rolling out more broadly to free users in the future."
+          - "Just go to Settings > [Integrations](https://claude.ai/settings/integrations) > Add Integration"
+          - "All Penguin Bank functions work for Pro users in the desktop app and browser.
       - title: "ChatGPT"
         image: "/images/carousel/chatgpt-mcp.png"
         bullets:
-          - "Connect via MCP protocol"
-          - "Natural banking conversations"
-          - "Seamless integration with your workflow"
+          - "ChatGPT recently added MCP servers for Team, Edu, and Enterprise customer."
+          - "For now, only works in 'deep research' queries."
+          - "Tool support limited to 'search' and 'fetch' tools."
+          - "While OpenAI lags Anthropic for MCP support, we anticipate broad access and support in the future."
       - title: "Other MCP Clients"
         image: "/images/carousel/laptop-mcp-logo.png"
         bullets:
-          - "Works with any MCP-compatible client"
-          - "Future-proof your banking integration"
-          - "Part of the growing MCP ecosystem"
+          - "Penguin Bank MCP Works with any MCP-compatible client."
+          - "New [MCP Clients](https://modelcontextprotocol.io/clients) are appearing every week."
 
   feedback:
     section_id: "feedback"
