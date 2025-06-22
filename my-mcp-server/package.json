@@ -12,8 +12,7 @@
 		"type-check": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@modelcontextprotocol/sdk": "^1.13.0",
-		"@supabase/supabase-js": "^2.48.0",
+		"@modelcontextprotocol/sdk": "^1.12.3",
 		"agents": "^0.0.95",
 		"zod": "^3.25.67"
 	},
