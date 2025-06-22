@@ -86,13 +86,19 @@ carousels:
           - "No setup or installation required"
           - "Perfect for testing before connecting"
       - title: "Connect to Claude Desktop"
-        icon: "cpu"
+        image: "/images/carousel/claude-mcp.png"
         bullets:
           - "Add Penguin Bank to your Claude config"
           - "Enjoy seamless banking in your workflow"
           - "Works with all Claude Desktop features"
+      - title: "ChatGPT"
+        image: "/images/carousel/chatgpt-mcp.png"
+        bullets:
+          - "Connect via MCP protocol"
+          - "Natural banking conversations"
+          - "Seamless integration with your workflow"
       - title: "Other MCP Clients"
-        icon: "shield"
+        image: "/images/carousel/laptop-mcp-logo.png"
         bullets:
           - "Works with any MCP-compatible client"
           - "Future-proof your banking integration"
