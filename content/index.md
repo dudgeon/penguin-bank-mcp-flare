@@ -215,7 +215,7 @@ footer:
       href: "#functions"
     - text: "Feedback"
       href: "#feedback"
-  copyright: "Penguin Bank is a demonstration MCP server for AI-powered banking. © 2025 Geoff Dudgeon."
+  copyright: "Penguin Bank is a demonstration MCP server for AI-powered banking. © 2025 [Geoff Dudgeon](mailto:dudgeon@gmail.com)."
 ---
 
 <!-- 
