@@ -97,7 +97,7 @@ carousels:
           - "Anthropic recently added MCP server support for all Pro customers."
           - "We anticipate this feature rolling out more broadly to free users in the future."
           - "Just go to Settings > [Integrations](https://claude.ai/settings/integrations) > Add Integration"
-          - "All Penguin Bank functions work for Pro users in the desktop app and browser.
+          - "All Penguin Bank functions work for Pro users in the desktop app and browser."
       - title: "ChatGPT"
         image: "/images/carousel/chatgpt-mcp.png"
         bullets:
