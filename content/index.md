@@ -27,8 +27,8 @@ carousels:
           - "Web search made it more reliable and trustworthy."
           - "Long-term memory has enhanced personalization."
       - title: "The new frontier is performing real work in your favorite services"
-        bullets:
         image: "/images/carousel/chatgpt-app-store.jpg"
+        bullets:
           - "ChatGPT has tried a number of integration patterns."
           - "The industry is coalescing around 'connectors'."
           - "ChatGPT can now search your Gmail, Calendar, and Dropbox files."
