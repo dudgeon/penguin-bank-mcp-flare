@@ -1,6 +1,6 @@
 ---
 title: "Penguin Bank - AI-Powered Banking"
-description: "AI assistants are getting more helpful. Banking made simple with MCP integration. Auto-building with SSG!"
+description: "AI assistants are getting more helpful. Banking made simple with MCP integration."
 layout: "home"
 
 # Hero Section Data
@@ -16,7 +16,7 @@ hero:
 carousels:
   intro:
     section_id: "intro"
-    section_title: "AI assistants are getting more helpful"
+    section_title: "AI assistants are coming for your app"
     track_id: "intro-track"
     dots_id: "intro-dots"
     slides:
@@ -41,7 +41,7 @@ carousels:
 
   features:
     section_id: "features"
-    section_title: "Banking made simple"
+    section_title: "Imagine: servicing your credit card from your favorite AI app"
     track_id: "features-track"
     dots_id: "features-dots"
     background_class: "bg-gray-50"
