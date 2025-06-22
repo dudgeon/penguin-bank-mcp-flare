@@ -26,19 +26,18 @@ carousels:
           - "ChatGPT started with general knowledge."
           - "Web search made it more reliable and trustworthy."
           - "Long-term memory has enhanced personalization."
+          - "With each leap, these apps are becoming more indispensible for more tasks."
       - title: "The new frontier is performing real work in your favorite services"
         image: "/images/carousel/chatgpt-app-store.jpg"
         bullets:
-          - "ChatGPT has tried a number of integration patterns."
-          - "The industry is coalescing around 'connectors'."
+          - "ChatGPT has tried a number of integration patterns - the industry is now coalescing around 'connectors.'"
           - "ChatGPT can now search your Gmail, Calendar, and Dropbox files."
           - "AI assistants are plausibly becoming the next operating system."
-      - title: "A new standard has arrived that will allow assistants to integrate with any company or service: MCP"
+      - title: "MCP will allow assistants to integrate with any company or service"
         image: "/images/carousel/farmers-market.jpg"
         bullets:
-          - "Previous integrations have relied on direct partnerships between AI company and Service provider."
-          - "If your app was not chosen, users could not interact with it via ChatGPT."
-          - "AI assistant providers are starting to embrace the Model Context Protocol (MCP) as a way to plug _any_ service into your favorite AI assistant."
+          - "Previous integrations relied on direct partnerships between AI and App providers - If your app was not chosen, users could not interact with it via ChatGPT."
+          - "AI assistant providers are starting to embrace the Model Context Protocol (MCP) as a way to plug any service into your favorite AI assistant."
           - "Any company (e.g. bank) can publish an MCP Server, and users of compatible AI assistants can use it."
 
   features:
@@ -66,6 +65,11 @@ carousels:
           - "Instantly freeze lost or stolen cards"
           - "Order replacements with one request"
           - "Get virtual card access immediately"
+      - title: "Perform multi-step tasks"
+        icon: "credit-card"
+        bullets:
+          - "AI assistants can combine these tools to perform more complex tasks."
+          - "e.g. 'Please pay my statement balance; transfer money from savings first if you need to.'"
 
   connect:
     section_id: "connect"
@@ -140,8 +144,8 @@ functions:
     - id: "account-information"
       title: "Account Information"
       functions:
-        - name: "get_balance"
-          status: "coming soon"
+        - name: "check-my-balance"
+          status: "available today"
           user_input: "What's my current balance?"
           response: "Your balance is $2,847.33 with $5,152.67 available credit"
         - name: "get_credit_limit"
@@ -152,8 +156,8 @@ functions:
     - id: "transaction-history"
       title: "Transaction History"
       functions:
-        - name: "get_recent_transactions"
-          status: "coming soon"
+        - name: "check-recent-transactions"
+          status: "available today"
           user_input: "Show me my last 5 purchases"
           response: "Here are your last 5 transactions:\n• Whole Foods - $67.43 (Today)\n• Netflix - $15.99 (Yesterday)\n• Shell Gas Station - $45.20 (Mar 2)\n• Amazon - $129.99 (Mar 1)\n• Starbucks - $6.75 (Mar 1)"
         - name: "search_transactions"
@@ -168,8 +172,8 @@ functions:
     - id: "payments-transfers"
       title: "Payments & Transfers"
       functions:
-        - name: "make_payment"
-          status: "coming soon"
+        - name: "pay-my-bill"
+          status: "available today"
           user_input: "Pay $200 toward my balance"
           response: "✓ Payment of $200 scheduled for today. Your new balance will be $2,647.33"
         - name: "schedule_payment"
@@ -184,8 +188,8 @@ functions:
     - id: "card-management"
       title: "Card Management"
       functions:
-        - name: "freeze_card"
-          status: "coming soon"
+        - name: "lock-my-card"
+          status: "available today"
           user_input: "I can't find my card"
           response: "🔒 I've frozen your card for you. No charges can be made until you unfreeze it. Just let me know when you find it!"
         - name: "report_lost_card"

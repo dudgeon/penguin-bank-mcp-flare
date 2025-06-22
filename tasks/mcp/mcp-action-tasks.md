@@ -4,11 +4,11 @@ Based on the "What you can do with Penguin Bank MCP" section, here are the imple
 
 ## Account Information
 
-1. **Get Balance Function** (`get_balance`)
+1. **Get Balance Function** (`check-my-balance`)
    - User: "What's my current balance?"
    - Response: "Your balance is $2,847.33 with $5,152.67 available credit"
    - Completion:
-     - [ ] Painted door
+     - [x] Painted door
      - [ ] Final
 
 2. **Get Credit Limit Function** (`get_credit_limit`)
@@ -20,7 +20,7 @@ Based on the "What you can do with Penguin Bank MCP" section, here are the imple
 
 ## Transaction History
 
-3. **Get Recent Transactions Function** (`get_recent_transactions`)
+3. **Get Recent Transactions Function** (`check-recent-transactions`)
    - User: "Show me my last 5 purchases"
    - Response: "Here are your last 5 transactions:
      • Whole Foods - $67.43 (Today)
@@ -29,7 +29,7 @@ Based on the "What you can do with Penguin Bank MCP" section, here are the imple
      • Amazon - $129.99 (Mar 1)
      • Starbucks - $6.75 (Mar 1)"
    - Completion:
-     - [ ] Painted door
+     - [x] Painted door
      - [ ] Final
 
 4. **Search Transactions Function** (`search_transactions`)
@@ -48,11 +48,11 @@ Based on the "What you can do with Penguin Bank MCP" section, here are the imple
 
 ## Payments & Transfers
 
-6. **Make Payment Function** (`make_payment`)
+6. **Make Payment Function** (`pay-my-bill`)
    - User: "Pay $200 toward my balance"
    - Response: "✓ Payment of $200 scheduled for today. Your new balance will be $2,647.33"
    - Completion:
-     - [ ] Painted door
+     - [x] Painted door
      - [ ] Final
 
 7. **Schedule Payment Function** (`schedule_payment`)
@@ -71,11 +71,11 @@ Based on the "What you can do with Penguin Bank MCP" section, here are the imple
 
 ## Card Management
 
-9. **Freeze Card Function** (`freeze_card`)
+9. **Freeze Card Function** (`lock-my-card`)
    - User: "I can't find my card"
    - Response: "🔒 I've frozen your card for you. No charges can be made until you unfreeze it. Just let me know when you find it!"
    - Completion:
-     - [ ] Painted door
+     - [x] Painted door
      - [ ] Final
 
 10. **Report Lost Card Function** (`report_lost_card`)
