@@ -162,4 +162,106 @@
             }, 2000);
         }
     }
+    
+    // Video carousel functionality
+    const videoCarousels = {};
+    
+    // Initialize video carousels
+    {{#each carousels}}
+    {{#if this.videos}}
+    initVideoCarousel('{{this.videos.section_id}}', {{this.videos.videos.length}});
+    {{/if}}
+    {{/each}}
+    
+    function initVideoCarousel(sectionId, totalVideos) {
+        if (totalVideos <= 1) return; // No need for carousel with single video
+        
+        videoCarousels[sectionId] = { currentSlide: 0, totalSlides: totalVideos };
+        
+        const track = document.getElementById(`${sectionId}-track`);
+        const dotsContainer = document.getElementById(`${sectionId}-dots`);
+        
+        // Create dots
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalVideos; i++) {
+            const dot = document.createElement('div');
+            dot.className = `dot ${i === 0 ? 'active' : ''}`;
+            dot.onclick = () => goToVideoSlide(sectionId, i);
+            dotsContainer.appendChild(dot);
+        }
+        
+        // Add touch/swipe support for video carousel
+        const container = track.parentElement;
+        let startX = 0;
+        let startY = 0;
+        let isSwipeDetected = false;
+        
+        container.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isSwipeDetected = false;
+        }, { passive: true });
+        
+        container.addEventListener('touchmove', (e) => {
+            if (!startX || !startY) return;
+            
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            
+            const diffX = startX - currentX;
+            const diffY = startY - currentY;
+            
+            // Only detect horizontal swipes
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                isSwipeDetected = true;
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        container.addEventListener('touchend', (e) => {
+            if (!startX || !startY || !isSwipeDetected) return;
+            
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    navigateVideoCarousel(sectionId, 1);
+                } else {
+                    navigateVideoCarousel(sectionId, -1);
+                }
+            }
+            
+            startX = 0;
+            startY = 0;
+            isSwipeDetected = false;
+        }, { passive: true });
+    }
+    
+    function navigateVideoCarousel(sectionId, direction) {
+        const state = videoCarousels[sectionId];
+        if (!state) return;
+        
+        const newSlide = state.currentSlide + direction;
+        
+        if (newSlide >= 0 && newSlide < state.totalSlides) {
+            goToVideoSlide(sectionId, newSlide);
+        }
+    }
+    
+    function goToVideoSlide(sectionId, slideIndex) {
+        const track = document.getElementById(`${sectionId}-track`);
+        const dotsContainer = document.getElementById(`${sectionId}-dots`);
+        
+        if (!track || !dotsContainer) return;
+        
+        videoCarousels[sectionId].currentSlide = slideIndex;
+        track.style.transform = `translateX(-${slideIndex * 100}%)`;
+        
+        // Update dots
+        const dots = dotsContainer.children;
+        Array.from(dots).forEach((dot, index) => {
+            dot.className = `dot ${index === slideIndex ? 'active' : ''}`;
+        });
+    }
 </script> 

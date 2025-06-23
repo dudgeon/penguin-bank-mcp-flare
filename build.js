@@ -36,6 +36,10 @@ Handlebars.registerHelper('eq', function(a, b) {
     return a === b;
 });
 
+Handlebars.registerHelper('gt', function(a, b) {
+    return a > b;
+});
+
 Handlebars.registerHelper('markdown', function(text) {
     if (!text) return '';
     // Parse markdown and return as safe HTML

@@ -61,9 +61,64 @@
                 </div>
                 {{/each}}
             </div>
-            <div class="carousel-nav absolute top-1/2 -translate-y-1/2 left-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('{{@key}}', -1)">‹</div>
-            <div class="carousel-nav absolute top-1/2 -translate-y-1/2 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('{{@key}}', 1)">›</div>
+            <div class="carousel-nav absolute top-1/2 -translate-y-1/2 left-4 bg-white rounded-full w-10 h-10 hidden md:flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('{{@key}}', -1)">‹</div>
+            <div class="carousel-nav absolute top-1/2 -translate-y-1/2 right-4 bg-white rounded-full w-10 h-10 hidden md:flex items-center justify-center shadow-md cursor-pointer" onclick="navigateCarousel('{{@key}}', 1)">›</div>
             <div class="flex justify-center gap-2 pb-6" id="{{this.dots_id}}"></div>
         </div>
+        
+        {{#if this.videos}}
+        <!-- Video Carousel Section -->
+        <div id="{{this.videos.section_id}}" class="mt-16">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{{this.videos.title}}</h3>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden relative">
+                <div class="video-carousel-track" id="{{this.videos.section_id}}-track">
+                    {{#each this.videos.videos}}
+                    <div class="video-carousel-slide">
+                        <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                            {{#if this.vimeo_id}}
+                                <!-- Actual Vimeo embed -->
+                                <iframe 
+                                    src="https://player.vimeo.com/video/{{this.vimeo_id}}?h=0&title=0&byline=0&portrait=0" 
+                                    class="w-full h-full"
+                                    frameborder="0" 
+                                    allow="autoplay; fullscreen; picture-in-picture" 
+                                    allowfullscreen>
+                                </iframe>
+                            {{else}}
+                                <!-- Fallback placeholder -->
+                                <div class="text-center p-8">
+                                    <div class="w-20 h-20 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-500 text-lg font-medium">Video placeholder</p>
+                                </div>
+                            {{/if}}
+                        </div>
+                        
+                        {{#if this.description}}
+                        <div class="p-6 border-t border-gray-100">
+                            <p class="text-gray-600 text-center">{{this.description}}</p>
+                        </div>
+                        {{/if}}
+                    </div>
+                    {{/each}}
+                </div>
+                
+                {{#if (gt this.videos.videos.length 1)}}
+                <!-- Navigation arrows (only show if more than 1 video) -->
+                <div class="video-carousel-nav absolute top-1/2 -translate-y-1/2 left-4 bg-white rounded-full w-10 h-10 hidden md:flex items-center justify-center shadow-md cursor-pointer opacity-70 hover:opacity-100 transition-opacity" onclick="navigateVideoCarousel('{{this.videos.section_id}}', -1)">‹</div>
+                <div class="video-carousel-nav absolute top-1/2 -translate-y-1/2 right-4 bg-white rounded-full w-10 h-10 hidden md:flex items-center justify-center shadow-md cursor-pointer opacity-70 hover:opacity-100 transition-opacity" onclick="navigateVideoCarousel('{{this.videos.section_id}}', 1)">›</div>
+                
+                <!-- Dots indicator -->
+                <div class="flex justify-center gap-2 py-4" id="{{this.videos.section_id}}-dots"></div>
+                {{/if}}
+            </div>
+        </div>
+        {{/if}}
     </div>
 </section> 
