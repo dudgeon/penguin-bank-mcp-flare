@@ -56,7 +56,7 @@ carousels:
           description: "Paypal has already launched basic MCP functionality for consumers (this is live, real data)."
     slides:
       - title: "Check recent transactions"
-        icon: "chart-line"
+        image: "/images/carousel/recent-transactions.jpg"
         bullets:
           - "View spending by category or merchant"
           - "Search transactions with natural language"
