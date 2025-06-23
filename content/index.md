@@ -46,6 +46,14 @@ carousels:
     track_id: "features-track"
     dots_id: "features-dots"
     background_class: "bg-gray-50"
+    videos:
+      section_id: "features-videos"
+      title: "Demo"
+      videos:
+        - vimeo_id: "1095464947"
+          description: "Imagine: servicing your credit card from your favorite AI app."
+        - vimeo_id: "your-second-video-id"
+          description: "Add your second video description here."
     slides:
       - title: "Check recent transactions"
         icon: "chart-line"
