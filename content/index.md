@@ -52,8 +52,8 @@ carousels:
       videos:
         - vimeo_id: "1095464947"
           description: "Imagine: servicing your credit card from your favorite AI app."
-        - vimeo_id: "your-second-video-id"
-          description: "Add your second video description here."
+        - vimeo_id: "1095466953"
+          description: "Paypal has already launched basic MCP functionality for consumers (this is live, real data)."
     slides:
       - title: "Check recent transactions"
         icon: "chart-line"
@@ -119,30 +119,7 @@ carousels:
           - "Penguin Bank MCP Works with any MCP-compatible client."
           - "New [MCP Clients](https://modelcontextprotocol.io/clients) are appearing every week."
 
-  feedback:
-    section_id: "feedback"
-    section_title: "Help us build the future"
-    track_id: "feedback-track"
-    dots_id: "feedback-dots"
-    slides:
-      - title: "What features do you want?"
-        icon: "message-circle"
-        bullets:
-          - "Investment account integration"
-          - "Budgeting and savings goals"
-          - "Multi-bank account management"
-      - title: "How can we improve?"
-        icon: "settings"
-        bullets:
-          - "Better natural language understanding"
-          - "More detailed transaction insights"
-          - "Faster response times and reliability"
-      - title: "Share your experience"
-        icon: "star"
-        bullets:
-          - "Tell us what works well for you"
-          - "Report any issues or bugs you find"
-          - "Suggest new use cases and workflows"
+
 
 # Banking Functions Data
 functions:
@@ -234,9 +211,7 @@ footer:
       href: "#connect"
     - text: "Functions"
       href: "#functions"
-    - text: "Feedback"
-      href: "#feedback"
-  copyright: "Penguin Bank is a demonstration MCP server for AI-powered banking. © 2025 [Geoff Dudgeon](mailto:dudgeon@gmail.com)."
+  copyright: "Penguin Bank is a demonstration MCP server for AI-powered banking. © 2025 Geoff Dudgeon."
 ---
 
 <!-- 
