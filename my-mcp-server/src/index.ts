@@ -59,18 +59,155 @@ export class MyMCP extends McpAgent {
 			{ 
 				limit: z.number().int().min(1).max(50).default(5).describe("Number of recent transactions to retrieve") 
 			},
-			async ({ limit }) => ({
-				content: [{ 
-					type: "text", 
-					text: `Last ${limit} transactions (Demo data):
-• Whole Foods - $67.43 (Today)
-• Netflix - $15.99 (Yesterday) 
-• Shell Gas Station - $45.20 (Mar 2)
-• Amazon - $129.99 (Mar 1)
-• Starbucks - $6.75 (Mar 1)` 
-				}],
-			})
-		);
+                        async ({ limit }) => {
+                                const allTransactions = [
+                                        {
+                                                merchant_name: "Whole Foods",
+                                                merchant_address: "123 Market St, San Francisco, CA",
+                                                amount: 67.43,
+                                                state: "posted",
+                                                date: "2025-04-12",
+                                                merchant_category: "grocery",
+                                                account: "credit_card",
+                                        },
+                                        {
+                                                merchant_name: "Netflix",
+                                                merchant_address: "100 Stream Way, Los Gatos, CA",
+                                                amount: 15.99,
+                                                state: "pending",
+                                                date: "2025-04-11",
+                                                merchant_category: "entertainment",
+                                                account: "credit_card",
+                                        },
+                                        {
+                                                merchant_name: "Shell Gas Station",
+                                                merchant_address: "900 Fuel Ave, Oakland, CA",
+                                                amount: 45.2,
+                                                state: "posted",
+                                                date: "2025-04-10",
+                                                merchant_category: "gas",
+                                                account: "credit_card",
+                                        },
+                                        {
+                                                merchant_name: "Amazon",
+                                                merchant_address: "410 Terry Ave, Seattle, WA",
+                                                amount: 129.99,
+                                                state: "posted",
+                                                date: "2025-04-09",
+                                                merchant_category: "shopping",
+                                                account: "credit_card",
+                                        },
+                                        {
+                                                merchant_name: "Starbucks",
+                                                merchant_address: "200 Coffee Rd, Seattle, WA",
+                                                amount: 6.75,
+                                                state: "posted",
+                                                date: "2025-04-09",
+                                                merchant_category: "coffee",
+                                                account: "credit_card",
+                                        },
+                                        {
+                                                merchant_name: "Uber",
+                                                merchant_address: "San Francisco, CA",
+                                                amount: 23.18,
+                                                state: "posted",
+                                                date: "2025-04-08",
+                                                merchant_category: "transportation",
+                                                account: "credit_card",
+                                        },
+                                        {
+                                                merchant_name: "Target",
+                                                merchant_address: "2500 First St, San Jose, CA",
+                                                amount: 82.5,
+                                                state: "posted",
+                                                date: "2025-04-07",
+                                                merchant_category: "shopping",
+                                                account: "credit_card",
+                                        },
+                                        {
+                                                merchant_name: "Spotify",
+                                                merchant_address: "1 Music Pl, Los Angeles, CA",
+                                                amount: 10.99,
+                                                state: "pending",
+                                                date: "2025-04-07",
+                                                merchant_category: "entertainment",
+                                                account: "credit_card",
+                                        },
+                                        {
+                                                merchant_name: "CVS Pharmacy",
+                                                merchant_address: "3000 Health Dr, Daly City, CA",
+                                                amount: 12.99,
+                                                state: "posted",
+                                                date: "2025-04-06",
+                                                merchant_category: "pharmacy",
+                                                account: "credit_card",
+                                        },
+                                        {
+                                                merchant_name: "Home Depot",
+                                                merchant_address: "400 Build Ln, Oakland, CA",
+                                                amount: 75.85,
+                                                state: "posted",
+                                                date: "2025-04-05",
+                                                merchant_category: "home improvement",
+                                                account: "credit_card",
+                                        },
+                                        {
+                                                merchant_name: "Payroll Deposit",
+                                                merchant_address: "Acme Corp, San Francisco, CA",
+                                                amount: 2400,
+                                                state: "posted",
+                                                date: "2025-04-15",
+                                                merchant_category: "income",
+                                                account: "checking",
+                                        },
+                                        {
+                                                merchant_name: "Rent Payment",
+                                                merchant_address: "123 Rental Ln, San Francisco, CA",
+                                                amount: -2100,
+                                                state: "posted",
+                                                date: "2025-04-01",
+                                                merchant_category: "housing",
+                                                account: "checking",
+                                        },
+                                        {
+                                                merchant_name: "ATM Withdrawal",
+                                                merchant_address: "Main St ATM, San Francisco, CA",
+                                                amount: -100,
+                                                state: "posted",
+                                                date: "2025-04-03",
+                                                merchant_category: "cash",
+                                                account: "checking",
+                                        },
+                                        {
+                                                merchant_name: "Electric Company",
+                                                merchant_address: "500 Energy Dr, San Francisco, CA",
+                                                amount: -120.47,
+                                                state: "posted",
+                                                date: "2025-04-04",
+                                                merchant_category: "utilities",
+                                                account: "checking",
+                                        },
+                                        {
+                                                merchant_name: "Trader Joe's",
+                                                merchant_address: "150 Grocery St, San Francisco, CA",
+                                                amount: -54.32,
+                                                state: "posted",
+                                                date: "2025-04-09",
+                                                merchant_category: "grocery",
+                                                account: "checking",
+                                        },
+                                ];
+                                const transactions = allTransactions.slice(0, limit);
+                                return {
+                                        content: [
+                                                {
+                                                        type: "text",
+                                                        text: JSON.stringify(transactions, null, 2) + " (Demo data)",
+                                                },
+                                        ],
+                                };
+                        }
+                );
 
 		// Lock card tool
 		this.server.tool(
