@@ -41,7 +41,7 @@ export class MyMCP extends McpAgent {
 				}
 
 				// Validate payment type matches amount
-				let expected_amount;
+				let expected_amount: number;
 				switch (payment_type) {
 					case "minimum":
 						expected_amount = minimum_payment;
@@ -75,7 +75,7 @@ export class MyMCP extends McpAgent {
 				return {
 					content: [{ 
 						type: "text", 
-						text: JSON.stringify({
+						text: `${JSON.stringify({
 							payment_status: "successful",
 							payment_details: {
 								amount: amount,
@@ -85,7 +85,7 @@ export class MyMCP extends McpAgent {
 								timestamp: new Date().toISOString()
 							},
 							updated_balances: {
-								[source_account + "_account"]: {
+								[`${source_account}_account`]: {
 									previous_balance: source_balance,
 									new_balance: new_source_balance,
 									account_type: source_account
@@ -99,7 +99,7 @@ export class MyMCP extends McpAgent {
 								}
 							},
 							message: `Payment of $${amount.toFixed(2)} successfully processed from ${source_account} account to credit card.`
-						}, null, 2) + " (Demo data - no actual payment was processed)"
+						}, null, 2)} (Demo data - no actual payment was processed)`
 					}],
 				};
 			}
@@ -113,7 +113,7 @@ export class MyMCP extends McpAgent {
 			async () => ({
 				content: [{ 
 					type: "text", 
-					text: JSON.stringify({
+					text: `${JSON.stringify({
 						checking_account: {
 							current_balance: 3247.89,
 							account_type: "checking"
@@ -129,7 +129,7 @@ export class MyMCP extends McpAgent {
 							total_credit_limit: 8000.00,
 							account_type: "credit_card"
 						}
-					}, null, 2) + " (Demo data)"
+					}, null, 2)} (Demo data)`
 				}],
 			})
 		);
