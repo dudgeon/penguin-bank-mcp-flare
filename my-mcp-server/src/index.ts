@@ -13,20 +13,102 @@ export class MyMCP extends McpAgent {
 		// Pay bill tool
 		this.server.tool(
 			"pay-my-bill",
-			"Pay a credit card bill or make a payment towards the account balance",
-			{ amount: z.number().positive().describe("Payment amount in dollars") },
-			async ({ amount }) => ({
-				content: [{ 
-					type: "text", 
-					text: `Payment of $${amount} has been scheduled. This is a demo - no actual payment was processed.` 
-				}],
-			})
+			"Pay a credit card bill or make a payment towards the account balance. IMPORTANT: Before calling this tool, ensure you have collected ALL required information from the user: payment amount, source account (checking or savings), and payment type (minimum, statement_balance, custom_amount, or full_balance). If any information is missing, ask the user to provide it before calling this tool.",
+			{ 
+				amount: z.number().positive().describe("Payment amount in dollars"),
+				source_account: z.enum(["checking", "savings"]).describe("Account to pay from - either 'checking' or 'savings'"),
+				payment_type: z.enum(["minimum", "statement_balance", "custom_amount", "full_balance"]).describe("Type of payment - 'minimum' for minimum payment due, 'statement_balance' for full statement amount, 'custom_amount' for user-specified amount, or 'full_balance' to pay off entire credit card balance")
+			},
+			async ({ amount, source_account, payment_type }) => {
+				// Validate payment amount against current balances
+				const checking_balance = 3247.89;
+				const savings_balance = 12458.32;
+				const credit_card_balance = 2847.33;
+				const statement_balance = 2695.12;
+				const minimum_payment = 125.00;
+
+				const source_balance = source_account === "checking" ? checking_balance : savings_balance;
+
+				// Validate sufficient funds
+				if (amount > source_balance) {
+					return {
+						isError: true,
+						content: [{ 
+							type: "text", 
+							text: `Insufficient funds. ${source_account} account balance: $${source_balance.toFixed(2)}, requested payment: $${amount.toFixed(2)}. Please choose a lower amount or different source account.` 
+						}]
+					};
+				}
+
+				// Validate payment type matches amount
+				let expected_amount;
+				switch (payment_type) {
+					case "minimum":
+						expected_amount = minimum_payment;
+						break;
+					case "statement_balance":
+						expected_amount = statement_balance;
+						break;
+					case "full_balance":
+						expected_amount = credit_card_balance;
+						break;
+					case "custom_amount":
+						expected_amount = amount; // Any amount is valid for custom
+						break;
+				}
+
+				if (payment_type !== "custom_amount" && Math.abs(amount - expected_amount) > 0.01) {
+					return {
+						isError: true,
+						content: [{ 
+							type: "text", 
+							text: `Payment amount mismatch. For payment type '${payment_type}', expected amount is $${expected_amount.toFixed(2)}, but received $${amount.toFixed(2)}. Please adjust the amount or change payment type to 'custom_amount'.` 
+						}]
+					};
+				}
+
+				// Process successful payment
+				const new_source_balance = source_balance - amount;
+				const new_credit_balance = Math.max(0, credit_card_balance - amount);
+				const remaining_credit_limit = 8000.00 - new_credit_balance;
+
+				return {
+					content: [{ 
+						type: "text", 
+						text: JSON.stringify({
+							payment_status: "successful",
+							payment_details: {
+								amount: amount,
+								source_account: source_account,
+								payment_type: payment_type,
+								transaction_id: `TXN-${Date.now()}`,
+								timestamp: new Date().toISOString()
+							},
+							updated_balances: {
+								[source_account + "_account"]: {
+									previous_balance: source_balance,
+									new_balance: new_source_balance,
+									account_type: source_account
+								},
+								credit_card: {
+									previous_balance: credit_card_balance,
+									new_balance: new_credit_balance,
+									remaining_credit_limit: remaining_credit_limit,
+									total_credit_limit: 8000.00,
+									account_type: "credit_card"
+								}
+							},
+							message: `Payment of $${amount.toFixed(2)} successfully processed from ${source_account} account to credit card.`
+						}, null, 2) + " (Demo data - no actual payment was processed)"
+					}],
+				};
+			}
 		);
 
 		// Check balance tool
 		this.server.tool(
 			"check-my-balance",
-			"Check current account balance and available credit",
+			"Get all active accounts and their current balances, including checking account balance, savings account balance, and credit card balances with available credit limits",
 			{},
 			async () => ({
 				content: [{ 
